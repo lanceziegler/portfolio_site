@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className='no-scrollbar'>
+    <html lang='en' className='no-scrollbar scroll-smooth'>
       <body className={inter.className}>
         <Nav />
         {children}
