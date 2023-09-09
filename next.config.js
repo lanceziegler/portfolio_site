@@ -5,6 +5,7 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './imageLoader/loader.ts',
   },
+  basePath: '/portfolio_site',
 };
 
 module.exports = nextConfig;
