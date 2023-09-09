@@ -12,15 +12,15 @@ const Contact = ({ id }: { id: string }) => {
     // This function will be called when the waypoint enters the viewport
     setTimeout(() => {
       setContent('Content to be shown when the waypoint is reached');
-      setAtBottom('');
-    }, 1000);
+      setAtBottom('opacity-100');
+    }, 200);
     console.log(window.innerHeight);
   };
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
     setContent('');
-    setAtBottom('hidden');
+    setAtBottom('opacity-0');
   };
 
   const handleClick = () => {
@@ -40,7 +40,7 @@ const Contact = ({ id }: { id: string }) => {
 
         <button
           onClick={handleClick}
-          className={`bg-blue-500 px-5 pb-5 text-xl rounded-xl font-bold flex flex-col justify-center opacity-90 items-center absolute bottom-10 right-20 z-20 ${atBottom}`}
+          className={`bg-blue-500 px-5 pb-5 text-xl rounded-xl font-bold flex flex-col justify-center items-center absolute bottom-10 right-20 z-20 ${atBottom} transition-opacity duration-1000`}
         >
           <img
             className='relative'

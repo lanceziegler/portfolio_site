@@ -4,6 +4,23 @@ import { Waypoint } from 'react-waypoint';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+const technologies: string[] = [
+  'Typescript',
+  'PostgreSQL',
+  'React',
+  'Next',
+  'Node',
+  'MongoDB',
+  'Tailwind',
+  'Webpack',
+  'Bootstrap',
+  'Jest',
+];
+
+const TechCards = ({ name }: { name: string }) => {
+  return <></>;
+};
+
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
