@@ -5,22 +5,26 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const technologies: string[] = [
-  'Typescript',
-  'PostgreSQL',
-  'React',
-  'Next',
-  'Node',
-  'MongoDB',
-  'Tailwind',
-  'Webpack',
-  'Bootstrap',
-  'Jest',
+  '/typescript.svg',
+  '/postgres.svg',
+  '/react.svg',
+  '/next.svg',
+  '/node.svg',
+  '/mongo.svg',
+  '/tailwind.svg',
+  '/webpack.svg',
+  '/bootstrap.svg',
+  '/jest.svg',
 ];
 
-const TechCards = ({ name }: { name: string }) => {
-  return <></>;
+const TechCard = ({ logo }: { logo: string }) => {
+  return (
+    <div className='bg-white p-5 rounded-full'>
+      <img width={50} height={10} alt={`${logo}`} src={`${logo}`} />
+    </div>
+  );
 };
-
+//TODO: Add tooltip to each TechCard
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
@@ -36,23 +40,26 @@ const About = ({ id }: { id: string }) => {
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
     setContent('');
-    setSectionVisible(false);
+    // setSectionVisible(false);
   };
 
   return (
     <div
       id={id}
-      className='flex justify-center items-center h-screen tracking-wide bg-blue-200'
+      className='flex justify-center items-center min-h-screen tracking-wide bg-blue-200'
     >
       <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
       {/* {content && <div className=''>{content}</div>} */}
+
       {sectionVisible && (
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          About Me
+          {technologies.map((tech, i) => (
+            <TechCard key={i} logo={tech} />
+          ))}
         </motion.div>
       )}
     </div>

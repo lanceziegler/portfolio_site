@@ -15,7 +15,7 @@ const Projects = ({ id }: { id: string }) => {
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
-    setOpacity(`opacity-0 transition-opacity duration-100`);
+    // setOpacity(`opacity-0 transition-opacity duration-100`);
   };
   return (
     <>
