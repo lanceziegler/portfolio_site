@@ -22,7 +22,7 @@ const technologies: string[] = [
 const TechCard = ({ logo }: { logo: string }) => {
   return (
     <div className='bg-white p-5 rounded-full'>
-      <Image
+      <img
         // loader={akamaiLoader}
         width={50}
         height={50}
