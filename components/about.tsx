@@ -3,6 +3,8 @@
 import { Waypoint } from 'react-waypoint';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import akamaiLoader from '../imageLoader/loader';
 
 const technologies: string[] = [
   '/typescript.svg',
@@ -20,7 +22,13 @@ const technologies: string[] = [
 const TechCard = ({ logo }: { logo: string }) => {
   return (
     <div className='bg-white p-5 rounded-full'>
-      <img width={50} height={10} alt={`${logo}`} src={`${logo}`} />
+      <Image
+        loader={akamaiLoader}
+        width={50}
+        height={50}
+        alt={logo}
+        src={logo}
+      />
     </div>
   );
 };
