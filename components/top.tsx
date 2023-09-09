@@ -28,7 +28,7 @@ const Top = ({ id }: { id: string }) => {
         transition={{ duration: 0.7 }}
       >
         <div
-          className={` flex content-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-stone-800 rounded-md pb-16 pt-8 px-10 ${glassStyle} transition-colors duration-1000`}
+          className={` flex content-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-800 rounded-md pb-16 pt-8 px-10 ${glassStyle} transition-colors duration-1000`}
         >
           <h1 className='text-white text-5xl font-thin font-montserrat tracking-widest'>
             Lance Ziegler
