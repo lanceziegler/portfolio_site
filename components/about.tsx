@@ -7,16 +7,16 @@ import Image from 'next/image';
 // import akamaiLoader from '../imageLoader/loader';
 
 const technologies: string[] = [
-  '/typescript.svg',
-  '/postgres.svg',
-  '/react.svg',
-  '/next.svg',
-  '/node.svg',
-  '/mongo.svg',
-  '/tailwind.svg',
-  '/webpack.svg',
-  '/bootstrap.svg',
-  '/jest.svg',
+  './typescript.svg',
+  './postgres.svg',
+  './react.svg',
+  './next.svg',
+  './node.svg',
+  './mongo.svg',
+  './tailwind.svg',
+  './webpack.svg',
+  './bootstrap.svg',
+  './jest.svg',
 ];
 
 const TechCard = ({ logo }: { logo: string }) => {
