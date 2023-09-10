@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 // import akamaiLoader from '../imageLoader/loader';
+// import Flubber from './flubber';
+import LogoCycle from './logoCycle';
 
 const technologies: string[] = [
   './typescript.svg',
@@ -19,20 +21,6 @@ const technologies: string[] = [
   './jest.svg',
 ];
 
-const TechCard = ({ logo }: { logo: string }) => {
-  return (
-    <div className='bg-white p-5 rounded-full'>
-      <img
-        // loader={akamaiLoader}
-        width={50}
-        height={50}
-        alt={logo}
-        src={logo}
-      />
-    </div>
-  );
-};
-//TODO: Add tooltip to each TechCard
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
@@ -52,10 +40,7 @@ const About = ({ id }: { id: string }) => {
   };
 
   return (
-    <div
-      id={id}
-      className='flex justify-center items-center min-h-screen tracking-wide bg-blue-200'
-    >
+    <div id={id} className='min-h-screen tracking-wide bg-white'>
       <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
       {/* {content && <div className=''>{content}</div>} */}
 
@@ -65,9 +50,9 @@ const About = ({ id }: { id: string }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {technologies.map((tech, i) => (
-            <TechCard key={i} logo={tech} />
-          ))}
+          <div className='flex items-center justify-center'>
+            <LogoCycle />
+          </div>
         </motion.div>
       )}
     </div>

@@ -44,7 +44,7 @@ const Contact = ({ id }: { id: string }) => {
         >
           <img
             className='relative'
-            src='/arrow.svg'
+            src='./arrow.svg'
             alt='Back to top'
             height={70}
             width={70}
