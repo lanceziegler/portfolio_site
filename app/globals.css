@@ -79,7 +79,7 @@
 }
 
 .current {
-  background-color: #e74d3c95; /* Highlight the current component */
+  background-color: #507ec367; /* Highlight the current component */
   box-shadow: 0px 0px 40px rgba(87, 113, 15, 0.4);
 }
 
@@ -91,4 +91,3 @@
     transform: rotateY(360deg);
   }
 }
-

@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='no-scrollbar scroll-smooth'>
       <body className={inter.className}>
-        <Nav />
+        {/* <Nav /> */}
         {children}
       </body>
     </html>

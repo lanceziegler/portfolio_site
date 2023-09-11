@@ -20,7 +20,7 @@ const Top = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className='flex justify-center items-center h-screen tracking-wide bg-gradient-to-br from-black to-slate-800'
+      className='flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-br from-black to-slate-800'
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.99 }}

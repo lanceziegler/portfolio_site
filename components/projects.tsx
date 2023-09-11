@@ -11,11 +11,13 @@ const Projects = ({ id }: { id: string }) => {
   const handleEnter = () => {
     // This function will be called when the waypoint enters the viewport
     setOpacity(' translate-x-0 opacity-100 transition-all duration-500');
+    console.log('Projects Waypoint Reached');
   };
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
     // setOpacity(`opacity-0 transition-opacity duration-100`);
+    console.log('Leaving Projects Waypoint');
   };
   return (
     <>

@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import {
   ReactLogo,
   NextLogo,
-  TypescriptLogo,
+  TypeScriptLogo,
   NodeLogo,
   WebpackLogo,
-  MongoLogo,
-  PostgresLogo,
+  MongoDBLogo,
+  PostgreSQLLogo,
+  GitLogo,
   TailwindLogo,
   BootstrapLogo,
   JestLogo,
@@ -27,38 +28,42 @@ import { getIndex, useFlubber } from './use-flubber';
 const components: (() => React.JSX.Element)[] = [
   ReactLogo,
   NextLogo,
-  TypescriptLogo,
+  TypeScriptLogo,
   NodeLogo,
   WebpackLogo,
-  MongoLogo,
-  PostgresLogo,
+  MongoDBLogo,
+  PostgreSQLLogo,
+  GitLogo,
   TailwindLogo,
   BootstrapLogo,
   JestLogo,
 ];
-
-const LogoCycle = () => {
+//@ts-ignore
+const LogoCycle = ({ setTech }) => {
   const numComponents = components.length;
   const angleIncrement = (2 * Math.PI) / numComponents;
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const currentComponent = components[currentIndex];
+
+  setTech(currentComponent.name.slice(0, -4));
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % numComponents);
-    }, 2000); // Rotate components every 2 seconds
+    }, 1000); // Rotate components every 2 seconds
 
     return () => {
       clearInterval(interval);
     };
   }, [numComponents]);
 
-  const currentComponent = components[currentIndex];
-
   return (
     <div className='relative'>
       <div className=''>
-        <div className='label absolute top-1/2'>{currentComponent.name}</div>{' '}
+        <div className='text-2xl font-montserrat bold absolute top-1/2'>
+          {/* {currentComponent.name.slice(0, -4)} */}
+        </div>{' '}
       </div>
       <div className='carousel-container'>
         {/* Fixed label outside of the carousel */}
