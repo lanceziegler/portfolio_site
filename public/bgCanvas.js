@@ -1,4 +1,4 @@
-const canvasDotsBg = function () {
+const canvasDotsBg = function (element) {
   const canvas = document.querySelector('.canvas-2'),
     ctx = canvas.getContext('2d'),
     colorDot = [
@@ -121,7 +121,7 @@ const canvasDotsBg = function () {
 
       // meed to acount for scroll height since the bg is static and uses mouse position
       const top =
-        (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);
+        (window.scrollY || document.scrollTop) - (document.clientTop || 0);
 
       // make the dot colour fade out the further they are from the mouse
 
@@ -239,7 +239,7 @@ const canvasDotsBg = function () {
     mousePosition.y = window.innerHeight / 2;
 
     const top =
-      (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);
+      (window.scrollY || document.scrollTop) - (document.clientTop || 0);
     mousePosition.y += top;
     // console.log(top);
 

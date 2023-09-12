@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import canvasDots from '../public/heroCanvas';
 import { motion } from 'framer-motion';
+import { Title, Text } from '@mantine/core';
 
 const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
@@ -20,7 +21,7 @@ const Top = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className='flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-br from-black to-slate-800'
+      className='min-h-screen flex justify-center items-center tracking-wide bg-gradient-to-br from-black to-slate-800'
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.99 }}
@@ -30,12 +31,10 @@ const Top = ({ id }: { id: string }) => {
         <div
           className={` flex content-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-800 rounded-md pb-16 pt-8 px-10 ${glassStyle} transition-colors duration-1000`}
         >
-          <h1 className='text-white text-5xl font-thin font-montserrat tracking-widest'>
+          <Title order={1} size='6rem'>
             Lance Ziegler
-          </h1>
-          <p className='text-slate-300 absolute mt-14 font-thin'>
-            software developer
-          </p>
+          </Title>
+          <p className='text-slate-400 absolute mt-32'>software developer</p>
         </div>
         <div className='canvas'>
           <canvas className='connecting-dots'></canvas>

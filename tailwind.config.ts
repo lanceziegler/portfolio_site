@@ -17,6 +17,13 @@ const config: Config = {
         inter: ['Inter', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
       },
+      transitionDuration: {
+        '400': '400ms',
+        '600': '600ms',
+        '800': '800ms',
+        '900': '900ms',
+        '750': '750ms'
+      },
     },
   },
   plugins: [],

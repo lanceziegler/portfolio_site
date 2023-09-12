@@ -46,8 +46,6 @@ const LogoCycle = ({ setTech }) => {
 
   const currentComponent = components[currentIndex];
 
-  setTech(currentComponent.name.slice(0, -4));
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % numComponents);
@@ -58,8 +56,16 @@ const LogoCycle = ({ setTech }) => {
     };
   }, [numComponents]);
 
+  useEffect(() => {
+    setTech(currentComponent.name.slice(0, -4));
+  }, [currentComponent.name, setTech]);
+
+  const update = () => {
+    setTech(currentComponent.name.slice(0, -4));
+  };
+
   return (
-    <div className='relative'>
+    <div className=''>
       <div className=''>
         <div className='text-2xl font-montserrat bold absolute top-1/2'>
           {/* {currentComponent.name.slice(0, -4)} */}

@@ -39,9 +39,12 @@ const Nav = () => {
   //! use context to pass state from sections to nav for UNDERLINE during active section
   return (
     <nav
-      className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex space-x-8 p-1 w-screen text-black z-10`}
+      className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex space-x-8 p-1 w-screen text-black z-20`}
     >
-      <Link href={'#top'} className={`${buttonStyles} underline underline-offset-2`}>
+      <Link
+        href={'#top'}
+        className={`${buttonStyles} underline underline-offset-2`}
+      >
         Top
       </Link>
       <Link href={'#about'} className={buttonStyles}>
