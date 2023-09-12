@@ -22,7 +22,7 @@ const Projects = ({ id }: { id: string }) => {
   // };
   return (
     <>
-      <div id={id} className={`min-h-screen space-x-10 mx-10 my-5 flex`}>
+      <div id={id} className={`min-h-screen space-x-10 mx-10 mt-32 flex`}>
         {/* <Waypoint onEnter={handleEnter} onLeave={handleLeave} /> */}
         <div className=''>
           <Project

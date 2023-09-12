@@ -109,7 +109,7 @@ const Contact = ({ id }: { id: string }) => {
 
       <div
         id={id}
-        className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-slate-200 to-dark.6 relative`}
+        className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-blue-500 to-dark.6 relative`}
       >
         <div
           className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 `}
@@ -159,7 +159,7 @@ const Contact = ({ id }: { id: string }) => {
           className={`${atBottom} transition-opacity duration-1000 absolute bottom-32 right-32`}
         >
           <Group>
-            <Avatar size={70} color='blue'>
+            <Avatar size={70} color='dark.4'>
               <img
                 className='relative'
                 src='./arrow.svg'
@@ -169,7 +169,9 @@ const Contact = ({ id }: { id: string }) => {
               />
             </Avatar>
             <div>
-              <Text color='black'>Back to top</Text>
+              <Text color='black' weight={700} size={20}>
+                Back to top
+              </Text>
             </div>
           </Group>
         </UnstyledButton>

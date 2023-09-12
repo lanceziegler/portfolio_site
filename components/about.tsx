@@ -60,11 +60,16 @@ const About = ({ id }: { id: string }) => {
                   shadow='sm'
                   padding='xl'
                   component='a'
-                  className='flex content-center items-center relative'
+                  radius={30}
+                  className='flex content-center items-center relative p-10'
                 >
-                  <Title className='z-10'>(Me) -{'>'}</Title>
+                  <Title className='z-10 text-white'>Lance -{'>'}</Title>
                   <Card.Section>
-                    <Avatar size={400} />
+                    <Avatar
+                      size={300}
+                      src='/me.png'
+                      className='bg-slate-800 rounded-full border-solid border-8 border-red-700'
+                    />
                   </Card.Section>
                   <div className='flex flex-col content-start p-9'>
                     <Text weight={500} size='xl'>
@@ -79,7 +84,7 @@ const About = ({ id }: { id: string }) => {
                       {"'"}m not coding, I enjoy playing Smash Ultimate, lifting
                       weights, and playing the guitar.
                     </Text>
-                    <Text className='absolute top-3/4' color='red.4'>
+                    <Text className='' color='red.4'>
                       Ask me about:
                     </Text>
                     <Title className='absolute top-3/4 right-20'>{tech}</Title>
