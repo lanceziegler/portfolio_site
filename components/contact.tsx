@@ -159,15 +159,7 @@ const Contact = ({ id }: { id: string }) => {
           className={`${atBottom} transition-opacity duration-1000 absolute bottom-32 right-32`}
         >
           <Group>
-            <Avatar size={70} color='dark.4'>
-              <img
-                className='relative'
-                src='./arrow.svg'
-                alt='Back to top'
-                height={70}
-                width={70}
-              />
-            </Avatar>
+            <Avatar size={70} color='dark.4' src={'./arrow.svg'} />
             <div>
               <Text color='black' weight={700} size={20}>
                 Back to top

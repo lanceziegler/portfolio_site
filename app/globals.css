@@ -29,6 +29,11 @@
   }
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .card {
   color: var(--clr-neutral-100);
   background-image: url('/Firewatch2.png');

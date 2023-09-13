@@ -19,25 +19,35 @@ const Top = ({ id }: { id: string }) => {
   }, []);
 
   return (
-    <div
-      id={id}
-      className='min-h-screen flex justify-center items-center tracking-wide bg-gradient-to-br from-black to-slate-800'
-    >
+<div
+  id={id}
+  className='min-h-screen md:min-h-screen bg-gradient-to-br from-black to-slate-800 relative h-screen'
+>
       <motion.div
         initial={{ opacity: 0, scale: 0.99 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
       >
-        <div
-          className={` flex content-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-800 rounded-md pb-16 pt-8 px-10 ${glassStyle} transition-colors duration-1000`}
-        >
-          <Title order={1} size='6rem'>
-            Lance Ziegler
-          </Title>
-          <p className='text-slate-400 absolute mt-32'>software developer</p>
-        </div>
-        <div className='canvas'>
-          <canvas className='connecting-dots'></canvas>
+        <canvas className='connecting-dots' />
+        <div className='mainCard absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <div
+            className={`bg-slate-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-2xl`}
+            style={{ whiteSpace: 'nowrap' }}
+          >
+            <div className='text-center'>
+              <Title
+                order={1}
+                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl'
+              >
+                Lance Ziegler
+              </Title>
+            </div>
+            <div className='text-center'>
+              <p className='text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-slate-400'>
+                software developer
+              </p>
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>
