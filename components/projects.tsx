@@ -41,7 +41,8 @@ const Projects = ({ id }: { id: string }) => {
             image=''
             duration={700}
           />
-        </div>
+        </div>{' '}
+        {/**Test */}
         <div className=''>
           <Project
             title='LiftLog'
