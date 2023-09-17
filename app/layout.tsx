@@ -29,7 +29,7 @@ import RootStyleRegistry from './emotion';
 //@ts-ignore
 export default function RootLayout({ children }) {
   return (
-    <html lang='en-US' className='no-scrollbar scroll-smooth'>
+    <html lang='en-US' className='no-scrollbar scroll-smooth overflow-x-hidden'>
       <head>
         {/**Manually added <title> myself */}
         <title>Lance Ziegler</title>
