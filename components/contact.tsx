@@ -94,7 +94,6 @@ const Contact = ({ id }: { id: string }) => {
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
-
     setAtBottom('opacity-0');
   };
 

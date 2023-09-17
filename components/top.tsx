@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import canvasDots from '../public/heroCanvas';
 import { motion } from 'framer-motion';
 import { Title, Text } from '@mantine/core';
+import { useViewportSize } from '@mantine/hooks';
 
 const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
@@ -16,13 +17,16 @@ const Top = ({ id }: { id: string }) => {
         'bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30'
       );
     }, 800);
+    return () => {
+      canvasDots;
+    };
   }, []);
 
   return (
-<div
-  id={id}
-  className='min-h-screen md:min-h-screen bg-gradient-to-br from-black to-slate-800 relative h-screen'
->
+    <div
+      id={id}
+      className='min-h-screen md:min-h-screen bg-gradient-to-br from-black to-slate-800 relative h-screen'
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.99 }}
         animate={{ opacity: 1, scale: 1 }}
