@@ -80,7 +80,7 @@ const LogoCycle = ({ setTech }) => {
             return (
               <div
                 key={index}
-                className={`carousel-ball ${
+                className={`carousel-ball absolute md:static ${
                   index === currentIndex ? 'current' : ''
                 }`}
                 style={{ transform: transformStyle }}

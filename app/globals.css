@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -110,4 +111,10 @@ body {
   z-index: -1;
   inset: 0;
   transform: skewY(-5deg);
+}
+
+.arrow-svg {
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(149deg)
+    brightness(124%) contrast(100%);
+  width: 70%;
 }

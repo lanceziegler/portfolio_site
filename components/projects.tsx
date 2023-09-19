@@ -24,10 +24,10 @@ const Projects = ({ id }: { id: string }) => {
     <>
       <div
         id={id}
-        className={`min-h-screen space-x-10 mx-10 mt-32 flex flex-col md:flex-row`}
+        className={`min-h-screen space-x-10 mx-10 mt-32 flex flex-col lg:flex-row`}
       >
         {/* <Waypoint onEnter={handleEnter} onLeave={handleLeave} /> */}
-        <div className=''>
+        <div>
           <Project
             title='Reactime'
             description='Open source chrome developer tool for debugging and performance monitoring in React applications'

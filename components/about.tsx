@@ -24,22 +24,33 @@ const About = ({ id }: { id: string }) => {
       <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
       <div className='flex flex-wrap'>
         {/* Left Column */}
-        <div className='w-full md:w-1/2 p-4'>
+        <div className='w-full lg:w-1/2 p-4 flex items-center'>
           <Card
-            shadow='sm'
-            padding='xl'
+            shadow='lg'
+            padding='lg'
             component='a'
             radius={30}
-            className='flex content-center items-center relative p-10'
+            className='flex content-center items-center relative p-5 flex-col lg:flex-row'
           >
-            <Title className='z-10 text-white'>Lance -{'>'}</Title>
-            <Card.Section>
-              <Avatar
-                size={300}
-                src='/me.png'
-                className='bg-slate-800 rounded-full border-solid border-8 border-red-700'
-              />
-            </Card.Section>
+            <div className='flex items-center justify-center flex-col lg:flex-row'>
+              <div className='z-10'>
+                <Title className='z-10 text-white text-7xl font-caveat'>
+                  Lance
+                </Title>
+                <img
+                  src='./arrowRight.svg'
+                  alt='arrow to right'
+                  className='arrow-svg'
+                ></img>
+              </div>
+              <Card.Section>
+                <Avatar
+                  size={300}
+                  src='/me.png'
+                  className='bg-slate-800 rounded-full border-solid border-8 border-red-700'
+                />
+              </Card.Section>
+            </div>
             <div className='flex flex-col content-start p-9'>
               <Text weight={500} size='xl'>
                 Driven to deliver high-quality technology solutions for your
@@ -52,16 +63,18 @@ const About = ({ id }: { id: string }) => {
                 coding, I enjoy playing Smash Ultimate, lifting weights, and
                 playing the guitar.
               </Text>
-              <Text className='' color='red.4'>
-                Ask me about:
-              </Text>
-              <Title className='absolute top-3/4 right-20'>{tech}</Title>
+              <div className='relative'>
+                <Text className='' color='red.4'>
+                  Ask me about:
+                </Text>
+                <Title className='absolute'>{tech}</Title>
+              </div>
             </div>
           </Card>
         </div>
 
         {/* Right Column */}
-        <div className='w-full md:w-1/2 p-4'>
+        <div className='w-full lg:w-1/2 p-4'>
           <div className='flex items-center justify-center'>
             <LogoCycle setTech={setTech} />
           </div>

@@ -2,6 +2,7 @@
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type ProjectTypes = {
   title: string;
@@ -66,9 +67,13 @@ const Project = ({
             {description}
           </Text>
 
-          <Button variant='light' color='blue' fullWidth mt='md' radius='md'>
+          <Link
+            href={link}
+            target='_blank'
+            className='bg-red-700 text-white p-4 rounded-md'
+          >
             Check it out
-          </Button>
+          </Link>
         </Card>
       </Waypoint>
     </>
