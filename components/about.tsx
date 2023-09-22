@@ -57,9 +57,9 @@ const About = ({ id }: { id: string }) => {
                 business.
               </Text>
               <Text mt='xs' color='dimmed' size='sm'>
-                I{"'"}m a full-stack developer who loves JavaScript, React, and
+                I&apos;m a full-stack developer who loves JavaScript, React, and
                 web development. The mix of creativity, logic, and endless
-                opportunities in this field excites me. When I {"'"}m not
+                opportunities in this field excites me. When I&apos;m not
                 coding, I enjoy playing Smash Ultimate, lifting weights, and
                 playing the guitar.
               </Text>
