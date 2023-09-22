@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, Text, Avatar, Title } from '@mantine/core';
 import LogoCycle from './logoCycle';
+import Image from 'next/image';
 
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
@@ -37,11 +38,13 @@ const About = ({ id }: { id: string }) => {
                 <Title className='z-10 text-white text-7xl font-caveat'>
                   Lance
                 </Title>
-                <img
+                <Image
                   src='./arrowRight.svg'
                   alt='arrow to right'
                   className='arrow-svg'
-                ></img>
+                  width={20}
+                  height={20}
+                ></Image>
               </div>
               <Card.Section>
                 <Avatar
@@ -61,7 +64,7 @@ const About = ({ id }: { id: string }) => {
                 web development. The mix of creativity, logic, and endless
                 opportunities in this field excites me. When I&apos;m not
                 coding, I enjoy playing Smash Ultimate, lifting weights, and
-                playing the guitar.
+                messing around on the guitar.
               </Text>
               <div className='relative'>
                 <Text className='' color='red.4'>
