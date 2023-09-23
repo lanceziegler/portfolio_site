@@ -44,6 +44,7 @@ const About = ({ id }: { id: string }) => {
                   className='arrow-svg'
                   width={20}
                   height={20}
+                  priority
                 ></Image>
               </div>
               <Card.Section>
