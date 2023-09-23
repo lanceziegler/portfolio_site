@@ -39,7 +39,7 @@ const About = ({ id }: { id: string }) => {
                   Lance
                 </Title>
                 <Image
-                  src='portfolio_site/arrowRight.svg'
+                  src='./arrowRight.svg'
                   alt='arrow to right'
                   className='arrow-svg'
                   width={20}
@@ -50,7 +50,7 @@ const About = ({ id }: { id: string }) => {
               <Card.Section>
                 <Avatar
                   size={300}
-                  src='portfolio_site/me.png'
+                  src='./me.png'
                   className='bg-slate-800 rounded-full border-solid border-8 border-red-700'
                 />
               </Card.Section>
