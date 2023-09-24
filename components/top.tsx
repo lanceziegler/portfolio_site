@@ -41,7 +41,7 @@ const Top = ({ id }: { id: string }) => {
             <div className='text-center'>
               <Title
                 order={1}
-                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl'
+                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide font-montserrat'
               >
                 Lance Ziegler
               </Title>
