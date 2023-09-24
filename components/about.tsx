@@ -1,3 +1,5 @@
+'use client';
+
 import { Waypoint } from 'react-waypoint';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
