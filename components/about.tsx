@@ -23,7 +23,7 @@ const About = ({ id }: { id: string }) => {
   };
 
   return (
-    <div id={id} className='min-h-screen tracking-wide diagonal'>
+    <div id={id} className='min-h-screen tracking-wide diagonal bg-[#1a1c1e]'>
       <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
       <div className='flex flex-wrap'>
         {/* Left Column */}
@@ -33,7 +33,7 @@ const About = ({ id }: { id: string }) => {
             padding='lg'
             component='a'
             radius={30}
-            className='flex content-center items-center relative p-5 flex-col lg:flex-row'
+            className='flex content-center items-center relative p-5 flex-col lg:flex-row bg-[#24262b]'
           >
             <div className='flex items-center justify-center flex-col lg:flex-row'>
               <div className='z-10'>

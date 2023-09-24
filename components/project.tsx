@@ -43,7 +43,7 @@ const Project = ({
           padding='lg'
           radius='md'
           withBorder
-          className={`mt-20 ${opacity}`}
+          className={`mt-20 bg-[#24262b] ${opacity}`}
         >
           <Card.Section>
             <Image
