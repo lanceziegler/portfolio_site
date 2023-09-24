@@ -1,7 +1,7 @@
 'use client';
 
 import { Waypoint } from 'react-waypoint';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, Text, Avatar, Title } from '@mantine/core';
 import LogoCycle from './logoCycle';
@@ -23,6 +23,10 @@ const About = ({ id }: { id: string }) => {
   const handleLeave = () => {
     console.log('Leaving About Waypoint');
   };
+
+  useEffect(() => {
+    console.log('Current tech is ' + tech);
+  }, [tech]);
 
   return (
     <div id={id} className='min-h-screen tracking-wide diagonal bg-[#1a1c1e]'>
