@@ -17,10 +17,6 @@
   box-sizing: border-box;
 }
 
-* {
-  background-color: red;
-}
-
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
