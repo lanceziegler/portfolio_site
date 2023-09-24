@@ -5,6 +5,8 @@ import { Card, Text, Avatar, Title } from '@mantine/core';
 import LogoCycle from './logoCycle';
 import Image from 'next/image';
 
+//! Double check images on launched version
+
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
