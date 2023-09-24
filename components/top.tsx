@@ -35,19 +35,16 @@ const Top = ({ id }: { id: string }) => {
         <canvas className='connecting-dots' />
         <div className='mainCard absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
           <div
-            className={`bg-slate-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-2xl`}
+            className={`bg-slate-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
             style={{ whiteSpace: 'nowrap' }}
           >
             <div className='text-center'>
-              <Title
-                order={1}
-                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide font-montserrat'
-              >
+              <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-bold font-montserrat'>
                 Lance Ziegler
-              </Title>
+              </h1>
             </div>
             <div className='text-center'>
-              <p className='text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-slate-400'>
+              <p className='text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-slate-400 font-montserrat tracking-tighter'>
                 software developer
               </p>
             </div>
