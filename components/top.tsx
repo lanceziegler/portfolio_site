@@ -10,7 +10,7 @@ const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
 
   useEffect(() => {
-    // canvasDots();
+    canvasDots();
 
     setTimeout(() => {
       setGlassStyle(

@@ -15,7 +15,7 @@ const Home = () => {
       </div> */}
       <Top id={'top'} />
       <About id={'about'} />
-      <Projects id={'projects'} />
+      {/* <Projects id={'projects'} /> */}
       <Contact id={'contact'} />
     </>
   );
