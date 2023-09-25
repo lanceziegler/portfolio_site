@@ -179,7 +179,7 @@ const Contact = ({ id }: { id: string }) => {
         preload='auto'
         className='background-video'
       >
-        <source src='beach2.mp4' type='video/mp4' />
+        <source src='beach3.mp4' type='video/mp4' />
       </video>
     </div>
   );
