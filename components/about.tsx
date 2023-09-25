@@ -17,11 +17,13 @@ const About = ({ id }: { id: string }) => {
   const handleEnter = () => {
     setSectionVisible(true);
     setTech('');
+    window.history.replaceState(null, '', `#${id}`);
     console.log('About Waypoint Reached');
   };
 
   const handleLeave = () => {
     console.log('Leaving About Waypoint');
+    window.history.replaceState(`#${id}`, '', null);
   };
 
   useEffect(() => {
@@ -29,9 +31,8 @@ const About = ({ id }: { id: string }) => {
   }, [tech]);
 
   return (
-    <div id={id} className='min-h-screen tracking-wide diagonal bg-[#1a1c1e]'>
-      <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-      <div className='flex flex-wrap'>
+    <div id={id} className='min-h-screen tracking-wide diagonal bg-black'>
+      <div className='flex flex-wrap content-center justify-center items-center'>
         {/* Left Column */}
         <div className='w-full lg:w-1/2 p-4 flex items-center'>
           <Card
@@ -39,23 +40,26 @@ const About = ({ id }: { id: string }) => {
             padding='lg'
             component='a'
             radius={30}
-            className='flex content-center items-center relative p-5 flex-col lg:flex-row bg-[#24262b]'
+            className='flex content-center items-center relative p-5 flex-col bg-[#24262b]'
           >
-            <div className='flex items-center justify-center flex-col lg:flex-row'>
-              <div className='z-10'>
-                <Title className='z-10 text-white text-7xl font-caveat'>
+            {/* NAME, ARROW, PICTURE */}
+            <div className='relative'>
+              {/* NAME, ARROW */}
+              <div className='flex flex-col z-10 absolute right-64 top-1/4'>
+                <Title className='z-10 text-white text-4xl sm:text-7xl font-caveat'>
                   Lance
                 </Title>
                 <Image
                   src='./arrowRight.svg'
                   alt='arrow to right'
-                  className='arrow-svg'
-                  width={20}
-                  height={20}
+                  className='arrow-svg -skew-y-12'
+                  width={130}
+                  height={130}
                   priority
                 ></Image>
               </div>
-              <Card.Section>
+              {/* PICTURE */}
+              <Card.Section className=''>
                 <Avatar
                   size={300}
                   src='./me.png'
@@ -76,6 +80,8 @@ const About = ({ id }: { id: string }) => {
                 messing around on the guitar.
               </Text>
               <div className='relative'>
+                <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
+
                 <Text className='' color='red.4'>
                   Ask me about:
                 </Text>
@@ -84,7 +90,6 @@ const About = ({ id }: { id: string }) => {
             </div>
           </Card>
         </div>
-
         {/* Right Column */}
         <div className='w-full lg:w-1/2 p-4'>
           <div className='flex items-center justify-center'>

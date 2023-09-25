@@ -116,5 +116,24 @@ body {
 .arrow-svg {
   filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(149deg)
     brightness(124%) contrast(100%);
-  width: 70%;
+}
+
+.hide {
+  display: none;
+}
+.hideShowDiv:hover + .hide {
+  display: block;
+  color: red;
+}
+
+.background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }

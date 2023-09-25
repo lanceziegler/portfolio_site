@@ -41,12 +41,6 @@ const Nav = () => {
     <nav
       className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex space-x-8 p-1 w-screen text-black z-20 xs:justify-center`}
     >
-      <Link
-        href={'#top'}
-        className={`${buttonStyles} underline underline-offset-2`}
-      >
-        Top
-      </Link>
       <Link href={'#about'} className={buttonStyles}>
         About Me
       </Link>

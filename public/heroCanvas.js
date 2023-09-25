@@ -104,7 +104,7 @@ const canvasDots = function () {
     this.vx = -0.5 + Math.random();
     this.vy = -0.5 + Math.random();
 
-    this.radius = Math.random() * 1.5;
+    this.radius = Math.random() * 1.1;
 
     this.colour = colorDot[Math.floor(Math.random() * colorDot.length)];
   }
@@ -179,7 +179,7 @@ const canvasDots = function () {
                 distanceRatio = 0;
               }
               //! Original: rgb(81, 162, 233
-              ctx.strokeStyle = `rgb(3, 72, 203, ${1 - distanceRatio})`;
+              ctx.strokeStyle = `rgb(50, 110, 111, ${1 - distanceRatio})`;
 
               ctx.stroke();
               ctx.closePath();

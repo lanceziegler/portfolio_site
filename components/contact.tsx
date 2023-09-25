@@ -81,6 +81,7 @@ const useStyles = createStyles((theme) => ({
 const Contact = ({ id }: { id: string }) => {
   const [scrollTop, setScrollTop] = useState(true);
   const [atBottom, setAtBottom] = useState('hidden');
+  const [visible, setVisible] = useState('hidden');
 
   const { classes } = useStyles();
 
@@ -89,12 +90,14 @@ const Contact = ({ id }: { id: string }) => {
     setTimeout(() => {
       setAtBottom('opacity-100');
     }, 200);
+    window.history.replaceState(null, '', `#${id}`);
     console.log(window.innerHeight);
   };
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
     setAtBottom('opacity-0');
+    window.history.replaceState(`#${id}`, '', null);
   };
 
   const handleClick = () => {
@@ -103,71 +106,82 @@ const Contact = ({ id }: { id: string }) => {
     document.documentElement.scrollTop = 0;
   };
   return (
-    <>
-      <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-
+    <div
+      id={id}
+      className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-blue-500 via-black via-95% to-black relative to-30%`}
+    >
       <div
-        id={id}
-        className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-blue-500 to-dark.6 relative`}
+        className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 mx-6`}
       >
-        <div
-          className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 `}
+        <SimpleGrid
+          cols={2}
+          spacing={50}
+          breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
         >
-          <SimpleGrid
-            cols={2}
-            spacing={50}
-            breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
-          >
-            <div>
-              <Title className={classes.title}>Let{"'"}s get in touch</Title>
-              <Text className={classes.description} mt='sm' mb={30}>
-                Enter your name and email address and I will get back to you as
-                soon as possible.
-              </Text>
-            </div>
-            <div className={classes.form}>
-              <TextInput
-                label='Email'
-                placeholder='helloworld@email.com'
-                required
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
-              <TextInput
-                label='Name'
-                placeholder='Java Scriptington'
-                mt='md'
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
-              <Textarea
-                required
-                label='Leave me a message!'
-                placeholder='Lance, you seem like an awesome person.'
-                minRows={4}
-                mt='md'
-                classNames={{ input: classes.input, label: classes.inputLabel }}
-              />
+          <div>
+            <Title className={classes.title}>Let{"'"}s get in touch</Title>
+            <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
 
-              <Group position='right' mt='md'>
-                <Button className={classes.control}>Send message</Button>
-              </Group>
-            </div>
-          </SimpleGrid>
-        </div>
-        <UnstyledButton
-          onClick={handleClick}
-          className={`${atBottom} transition-opacity duration-1000 absolute bottom-32 right-32`}
-        >
-          <Group>
-            <Avatar size={70} color='dark.4' src={'./arrow.svg'} />
-            <div>
-              <Text color='black' weight={700} size={20}>
-                Back to top
-              </Text>
-            </div>
-          </Group>
-        </UnstyledButton>
+            <Text className={classes.description} mt='sm' mb={30}>
+              Enter your name and email address and I will get back to you as
+              soon as possible.
+            </Text>
+          </div>
+          <div className={classes.form}>
+            <TextInput
+              label='Email'
+              placeholder='helloworld@email.com'
+              required
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            />
+            <TextInput
+              label='Name'
+              placeholder='Java Scriptington'
+              mt='md'
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            />
+            <Textarea
+              required
+              label='Leave me a message!'
+              placeholder='Lance, you seem like an awesome person.'
+              minRows={4}
+              mt='md'
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+            />
+
+            <Group position='right' mt='md'>
+              <Button className={`${classes.control} bg-blue-400`}>
+                Send message
+              </Button>
+            </Group>
+          </div>
+        </SimpleGrid>
       </div>
-    </>
+      <UnstyledButton
+        onClick={handleClick}
+        className={`${atBottom} transition-all duration-1000 absolute bottom-10 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl rounded-xl hideShowDiv`}
+      >
+        <Group>
+          <Avatar size={70} color='black' src={'./arrow.svg'} />
+          <div>
+            <Text color='black' weight={500} size={20} className='pr-6'>
+              Back to top
+            </Text>
+          </div>
+        </Group>
+      </UnstyledButton>
+      <video
+        width='100%'
+        height='auto'
+        autoPlay
+        muted
+        loop
+        preload='auto'
+        className='background-video'
+      >
+        <source src='beach2.mp4' type='video/mp4' />
+      </video>
+    </div>
   );
 };
 
