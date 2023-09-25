@@ -5,27 +5,32 @@ import { useState, useEffect } from 'react';
 
 const Nav = () => {
   const [scrollStyle, setScrollStyle] = useState('');
+  const [buttonBg, setButtonBg] = useState(
+    'bg-black rounded-sm bg-opacity-75 px-3'
+  );
   const [textColor, setTextColor] = useState('text-white');
   const [topHover, setTopHover] = useState(
     'hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-sm hover:bg-opacity-10'
   );
   //   const [background, setBackground] = useState('bg-slate-800');
 
-  const buttonStyles = `hover:text-red-400 hover:translate-x-1 hover:underline underline-offset-8 decoration-2 rounded-sm active:text-slate-200 p-4 transition-all ${textColor}`;
+  const buttonStyles = `hover:text-blue-400 hover:translate-x-1 hover:bg-black decoration-2 rounded-sm active:text-slate-200 p-4 transition-all font-montserrat ${textColor} ${buttonBg}`;
 
   useEffect(() => {
     // Add scroll event listener when the component mounts
     const handleScroll = () => {
       if (window.scrollY !== 0) {
         setScrollStyle('bg-white shadow-md');
-        setTextColor('text-black');
+        setTextColor('text-black text-xl md:text-2xl');
         setTopHover('');
+        setButtonBg('');
       } else {
         setScrollStyle('');
-        setTextColor('text-white');
+        setTextColor('text-white text-xl md:text-2xl');
         setTopHover(
           'hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-sm hover:bg-opacity-10'
         );
+        setButtonBg('bg-black rounded-sm bg-opacity-75 px-3');
       }
     };
 
@@ -39,7 +44,7 @@ const Nav = () => {
   //! use context to pass state from sections to nav for UNDERLINE during active section
   return (
     <nav
-      className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex space-x-8 p-1 w-screen text-black z-20 xs:justify-center`}
+      className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex p-1 w-screen justify-center lg:justify-normal text-black z-20 space-x-2 md:space-x-10`}
     >
       <Link href={'#about'} className={buttonStyles}>
         About Me

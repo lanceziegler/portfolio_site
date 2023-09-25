@@ -1,7 +1,7 @@
 'use client';
 
 import { Waypoint } from 'react-waypoint';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UnstyledButton, Group, Avatar, Text } from '@mantine/core';
 import {
   createStyles,
@@ -13,6 +13,7 @@ import {
   ActionIcon,
   rem,
 } from '@mantine/core';
+import canvasDots from '../public/heroCanvas';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -85,6 +86,14 @@ const Contact = ({ id }: { id: string }) => {
 
   const { classes } = useStyles();
 
+  // useEffect(() => {
+  //   canvasDots();
+
+  //   return () => {
+  //     canvasDots;
+  //   };
+  // }, []);
+
   const handleEnter = () => {
     // This function will be called when the waypoint enters the viewport
     setTimeout(() => {
@@ -110,6 +119,7 @@ const Contact = ({ id }: { id: string }) => {
       id={id}
       className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-blue-500 via-black via-95% to-black relative to-30%`}
     >
+      {/* <canvas className='connecting-dots' /> */}
       <div
         className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 mx-6`}
       >
@@ -159,7 +169,7 @@ const Contact = ({ id }: { id: string }) => {
       </div>
       <UnstyledButton
         onClick={handleClick}
-        className={`${atBottom} transition-all duration-1000 absolute bottom-10 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl rounded-xl hideShowDiv`}
+        className={`${atBottom} transition-all duration-1000 absolute bottom-10 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
       >
         <Group>
           <Avatar size={70} color='black' src={'./arrow.svg'} />
@@ -170,17 +180,6 @@ const Contact = ({ id }: { id: string }) => {
           </div>
         </Group>
       </UnstyledButton>
-      <video
-        width='100%'
-        height='auto'
-        autoPlay
-        muted
-        loop
-        preload='auto'
-        className='background-video'
-      >
-        <source src='beach3.mp4' type='video/mp4' />
-      </video>
     </div>
   );
 };

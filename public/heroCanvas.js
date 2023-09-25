@@ -12,7 +12,7 @@ const canvasDots = function () {
     color = 'rgb(81, 162, 233)';
 
   // ctx.globalAlpha = 0.8;
-  canvas.width = document.body.scrollWidth;
+  canvas.width = document.body.clientWidth;
   canvas.height = window.innerHeight;
   canvas.style.display = 'block';
   // ctx.fillStyle = colorDot;

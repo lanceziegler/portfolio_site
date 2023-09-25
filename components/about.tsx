@@ -30,68 +30,75 @@ const About = ({ id }: { id: string }) => {
     console.log('Current tech is ' + tech);
   }, [tech]);
 
+  const onDragStart = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
-    <div id={id} className='min-h-screen tracking-wide diagonal bg-black'>
-      <div className='flex flex-wrap content-center justify-center items-center'>
+    <div
+      id={id}
+      className='min-h-screen tracking-wide diagonal bg-black flex justify-center content-center items-center'
+    >
+      <div className='flex flex-col-reverse lg:flex-row'>
         {/* Left Column */}
-        <div className='w-full lg:w-1/2 p-4 flex items-center'>
+        <div className='px-4 flex items-center lg:flex-1'>
           <Card
-            shadow='lg'
-            padding='lg'
-            component='a'
-            radius={30}
-            className='flex content-center items-center relative p-5 flex-col bg-[#24262b]'
+            className='flex content-center items-center relative p-5 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle'
+            onDragStart={onDragStart}
           >
             {/* NAME, ARROW, PICTURE */}
             <div className='relative'>
               {/* NAME, ARROW */}
-              <div className='flex flex-col z-10 absolute right-64 top-1/4'>
-                <Title className='z-10 text-white text-4xl sm:text-7xl font-caveat'>
+              <div className='flex flex-col z-10 absolute -left-10 sm:-left-32 top-1/4'>
+                <Title className='text-white text-4xl sm:text-7xl font-caveat select-none ml-3 sm:ml-0'>
                   Lance
                 </Title>
                 <Image
                   src='./arrowRight.svg'
                   alt='arrow to right'
-                  className='arrow-svg -skew-y-12'
+                  className='arrow-svg -skew-y-12 select-none w-10 sm:w-28 ml-4 sm:ml-4'
                   width={130}
                   height={130}
                   priority
                 ></Image>
               </div>
               {/* PICTURE */}
-              <Card.Section className=''>
+              <Card.Section>
                 <Avatar
                   size={300}
                   src='./me.png'
-                  className='bg-slate-800 rounded-full border-solid border-8 border-red-700'
+                  className='bg-gradient-to-b from-gray-800 to-gray-600 rounded-full border-solid border-8 border-red-700'
+                  draggable='false'
                 />
               </Card.Section>
             </div>
-            <div className='flex flex-col content-start p-9'>
-              <Text weight={500} size='xl'>
+            <div className='flex flex-col content-center justify-center items-center py-9 px-4'>
+              <Text className='text-white text-2xl sm:text-4xl font-inter text-center font-semibold select-none'>
                 Driven to deliver high-quality technology solutions for your
                 business.
               </Text>
-              <Text mt='xs' color='dimmed' size='sm'>
+              <Text className='text-gray-200 text-md sm:text-lg text-center mt-6 font-inter mb-16'>
                 I&apos;m a full-stack developer who loves JavaScript, React, and
                 web development. The mix of creativity, logic, and endless
                 opportunities in this field excites me. When I&apos;m not
                 coding, I enjoy playing Smash Ultimate, lifting weights, and
                 messing around on the guitar.
               </Text>
-              <div className='relative'>
+              <div className='mt-6 absolute bottom-9'>
                 <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
 
-                <Text className='' color='red.4'>
+                <Text className='text-red-400 text-center font-inter'>
                   Ask me about:
                 </Text>
-                <Title className='absolute'>{tech}</Title>
+                <Title className='text-white animate-pulse text-center font-inter colorCycle'>
+                  {tech}
+                </Title>
               </div>
             </div>
           </Card>
         </div>
         {/* Right Column */}
-        <div className='w-full lg:w-1/2 p-4'>
+        <div className='lg:flex-1 lg:static absolute right-1/2 smallCyclePosition'>
           <div className='flex items-center justify-center'>
             <LogoCycle setTech={setTech} />
           </div>

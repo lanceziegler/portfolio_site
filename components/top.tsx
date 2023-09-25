@@ -47,7 +47,7 @@ const Top = ({ id }: { id: string }) => {
       }}
       transition={{ duration: 4 }}
     >
-      <div id={id} className={`min-h-screen md:min-h-screen relative h-screen`}>
+      <div id={id} className={`min-h-screen relative`}>
         <motion.div
           initial={{ opacity: 0, scale: 0.99 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -63,7 +63,6 @@ const Top = ({ id }: { id: string }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{
                   scale: 0.95,
-                  borderRadius: '100%',
                 }}
               >
                 <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
@@ -88,6 +87,17 @@ const Top = ({ id }: { id: string }) => {
           </Tooltip>
         </motion.div>
       </div>
+      <video
+        width='100%'
+        height='100vh'
+        autoPlay
+        muted
+        loop
+        preload='auto'
+        className='background-video'
+      >
+        <source src='beach3.mp4' type='video/mp4' />
+      </video>
     </motion.div>
   );
 };

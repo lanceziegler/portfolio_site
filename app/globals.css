@@ -106,7 +106,7 @@ body {
 
 .diagonal::after {
   content: '';
-  background-image: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+  background-image: linear-gradient(45deg, #0062ff, #ff3c49);
   position: absolute;
   z-index: -1;
   inset: 0;
@@ -135,5 +135,29 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -11;
+}
+
+.colorCycle {
+  animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+  0% {
+    color: #ff6e6e;
+  }
+  50% {
+    color: #5596ff;
+  }
+  100% {
+    color: #ff6e6e;
+  }
+}
+
+.cardStyle {
+  box-shadow: -0.2rem 0.3rem 1.5rem black;
+}
+
+.smallCyclePosition {
+  top: 43%;
 }

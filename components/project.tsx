@@ -37,45 +37,43 @@ const Project = ({
 
   return (
     <>
-      <Waypoint onEnter={handleEnter} onLeave={handleLeave}>
-        <Card
-          shadow='sm'
-          padding='lg'
-          radius='md'
-          withBorder
-          className={`mt-20 bg-[#24262b] ${opacity}`}
-        >
-          <Card.Section>
-            <Image
-              src='https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80'
-              height={500}
-              alt='Norway'
-            />
-          </Card.Section>
+      <Card
+        shadow='sm'
+        padding='lg'
+        radius='md'
+        withBorder
+        className={`mt-20 bg-[#24262b] relative`}
+      >
+        <Card.Section>
+          <Image
+            src='https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80'
+            alt='Norway'
+            className='h-70 sm:h-100'
+          />
+        </Card.Section>
 
-          <Group position='apart' mt='md' mb='xs'>
-            <Text size='xl' weight={700}>
-              {title}
-            </Text>
-            {/** CREATE IN-PROGRESS STATE */}
-            <Badge color='pink' variant='light'>
-              In progress
-            </Badge>
-          </Group>
-
-          <Text size='sm' color='dimmed'>
-            {description}
+        <Group position='apart' mt='md' mb='xs'>
+          <Text size='xl' weight={700}>
+            {title}
           </Text>
+          {/** CREATE IN-PROGRESS STATE */}
+          <Badge color='pink' variant='light'>
+            In progress
+          </Badge>
+        </Group>
 
-          <Link
-            href={link}
-            target='_blank'
-            className='bg-red-700 text-white p-4 rounded-md'
-          >
-            Check it out
-          </Link>
-        </Card>
-      </Waypoint>
+        <Text size='sm' color='dimmed' className='mb-12'>
+          {description}
+        </Text>
+
+        <Link
+          href={link}
+          target='_blank'
+          className='bg-red-700 text-white p-4 rounded-md absolute bottom-0 right-0'
+        >
+          Check it out
+        </Link>
+      </Card>
     </>
   );
 };
