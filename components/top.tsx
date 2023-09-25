@@ -95,6 +95,7 @@ const Top = ({ id }: { id: string }) => {
         loop
         preload='auto'
         className='background-video'
+        playsInline
       >
         <source src='beach3.mp4' type='video/mp4' />
       </video>
