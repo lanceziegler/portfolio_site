@@ -107,7 +107,7 @@ const Top = ({ id }: { id: string }) => {
                 transition={{ delay: 3.3, duration: 1 }}
                 className={`flex items-center content-center justify-center ${display}`}
               >
-                <h4>Tap to read about me!</h4>
+                <h4 className='text-gray-300'>Tap to read about me!</h4>
               </motion.div>
             </motion.div>
           </div>
