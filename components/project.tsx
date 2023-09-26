@@ -51,19 +51,22 @@ const Project = ({
         shadow='sm'
         padding='sm'
         radius='md'
-        withBorder
-        className={`mt-20 bg-[#24262b] relative`}
+        className={`mt-20 bg-[#24262b] relative border-solid border border-gray-600`}
       >
         <Card.Section>
           <Image
-            src={'firewatch2.png'} //! CHANGE TO ACTUAL
+            src={'./firewatch2.png'} //! CHANGE TO ACTUAL
             alt={`${title}`}
             className='h-70 sm:h-100'
           />
         </Card.Section>
 
         <Group position='apart' mt='md' mb='xs'>
-          <Text size='xl' weight={700}>
+          <Text
+            size='xl'
+            weight={800}
+            className='font-montserrat tracking-wider text-gray-200'
+          >
             {title}
           </Text>
           {/** CREATE IN-PROGRESS STATE */}
@@ -87,7 +90,10 @@ const Project = ({
           </Group>
         </Group>
 
-        <Text size='sm' color='dimmed' className='mb-12'>
+        <Text
+          size='md'
+          className='mb-12 font-inter tracking-wide text-gray-400'
+        >
           {description}
         </Text>
 
@@ -98,7 +104,6 @@ const Project = ({
         >
           Check it out
         </Link>
-       
       </Card>
     </>
   );
