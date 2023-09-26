@@ -39,12 +39,12 @@ const About = ({ id }: { id: string }) => {
       id={id}
       className='min-h-screen tracking-wide diagonal bg-black flex justify-center content-center items-center'
     >
-      <div className='flex flex-col-reverse lg:flex-row'>
+      <div className='flex flex-col-reverse lg:flex-row mt-10'>
         {/* Left Column */}
-        <div className='px-4 flex items-center lg:flex-1'>
+        <div className='px-4 flex items-center lg:flex-1 xl:m-10'>
           <Card
-            className='flex content-center items-center relative p-5 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle'
-            onDragStart={onDragStart}
+            className='flex content-center items-center relative p-2 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle'
+            // onDragStart={onDragStart}
           >
             {/* NAME, ARROW, PICTURE */}
             <div className='relative'>
@@ -100,7 +100,7 @@ const About = ({ id }: { id: string }) => {
           </Card>
         </div>
         {/* Right Column */}
-        <div className='lg:flex-1 lg:static absolute right-1/2 smallCyclePosition'>
+        <div className='lg:flex-1 lg:static absolute right-1/2 smallCyclePosition -mt-10 sm:mt-3'>
           <div className='flex items-center justify-center'>
             <LogoCycle setTech={setTech} />
           </div>

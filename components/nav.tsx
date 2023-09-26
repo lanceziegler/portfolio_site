@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const Nav = () => {
   const [scrollStyle, setScrollStyle] = useState('');
@@ -13,11 +14,14 @@ const Nav = () => {
   const [topHover, setTopHover] = useState(
     'hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-sm hover:bg-opacity-10'
   );
+  const [display, setDisplay] = useState('');
   //   const [background, setBackground] = useState('bg-slate-800');
 
   const buttonStyles = `hover:text-blue-400 hover:translate-x-1 decoration-2 rounded-sm active:text-slate-200 p-4 transition-all font-montserrat ${textColor} ${buttonBg}`;
 
   useEffect(() => {
+    window.innerWidth >= 640 ? setDisplay('block') : setDisplay('hidden');
+
     // Add scroll event listener when the component mounts
     const handleScroll = () => {
       if (window.scrollY !== 0) {
@@ -46,19 +50,25 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav
-      className={`${scrollStyle} ${topHover} transition-all duration-500 fixed flex p-1 w-screen justify-center lg:justify-normal text-black z-20 space-x-1 md:space-x-10`}
+    <motion.div
+      initial={{ opacity: 0, x: -10, scale: 0.99 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ duration: 1 }}
     >
-      <Link href={'#about'} className={buttonStyles}>
-        About Me
-      </Link>
-      <Link href={'#projects'} className={buttonStyles}>
-        Projects
-      </Link>
-      <Link href={'#contact'} className={buttonStyles}>
-        Contact
-      </Link>
-    </nav>
+      <nav
+        className={`${scrollStyle} ${topHover} ${display} transition-all duration-500 fixed flex p-1 w-screen justify-center lg:justify-normal text-black z-20 space-x-1 md:space-x-10`}
+      >
+        <Link href={'#about'} className={buttonStyles}>
+          About Me
+        </Link>
+        <Link href={'#projects'} className={buttonStyles}>
+          Projects
+        </Link>
+        <Link href={'#contact'} className={buttonStyles}>
+          Contact
+        </Link>
+      </nav>
+    </motion.div>
   );
 };
 

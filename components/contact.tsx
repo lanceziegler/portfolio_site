@@ -182,7 +182,7 @@ const Contact = ({ id }: { id: string }) => {
       </div>
       <UnstyledButton
         onClick={handleClick}
-        className={`${atBottom} transition-all duration-1000 absolute bottom-2 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
+        className={`${atBottom} transition-all duration-1000 absolute md:bottom-2 bottom-0 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
       >
         <Group>
           <Avatar size={70} color='black' src={'./arrow.svg'} />

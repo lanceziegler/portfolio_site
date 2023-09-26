@@ -41,10 +41,10 @@ const Projects = ({ id }: { id: string }) => {
   }, []);
 
   return (
-    <div className='bg-black relative -z-10'>
+    <div className='min-h-screen bg-black relative -z-30 flex items-center content-center justify-center'>
       <div
         id={id}
-        className={`min-h-screen space-x-5 mx-10 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center projects-section`}
+        className={`lg:space-x-5 mx-3 sm:mx-10 lg:mx-3 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center projects-section`}
       >
         <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
         <div>
@@ -54,6 +54,7 @@ const Projects = ({ id }: { id: string }) => {
             link='https://www.reacti.me/'
             image=''
             duration={500}
+            techList={['react', 'next']}
           />
         </div>
         <div>
@@ -63,6 +64,7 @@ const Projects = ({ id }: { id: string }) => {
             link='#projects'
             image=''
             duration={700}
+            techList={['mongo', 'react']}
           />
         </div>{' '}
         {/**Test */}
@@ -73,6 +75,7 @@ const Projects = ({ id }: { id: string }) => {
             link='#projects'
             image=''
             duration={900}
+            techList={[]}
           />
         </div>
       </div>

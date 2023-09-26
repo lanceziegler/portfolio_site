@@ -9,12 +9,14 @@ import { Waypoint } from 'react-waypoint';
 
 const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
+  const [display, setDisplay] = useState('');
   const isSafari = () => {
     const ua = navigator.userAgent.toLowerCase();
     return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
   };
 
   useEffect(() => {
+    window.innerWidth <= 640 ? setDisplay('block') : setDisplay('hidden');
     // canvasDots();
 
     setTimeout(() => {
@@ -47,7 +49,7 @@ const Top = ({ id }: { id: string }) => {
       }}
       animate={{
         background:
-          'linear-gradient(352deg, rgba(0,0,0,1) 25%, rgba(0,0,0,0.1) 100%)',
+          'linear-gradient(352deg, rgba(0,0,0,1) 18%, rgba(0,0,0,0.1) 100%)',
       }}
       transition={{ duration: 4 }}
     >
@@ -61,19 +63,28 @@ const Top = ({ id }: { id: string }) => {
           transition={{ duration: 0.7 }}
         >
           <canvas className='connecting-dots' />
-          <Tooltip label='Click to read about me!' color='blue'>
-            <div
-              className='mainCard transform cursor-pointer select-none -mt-48'
-              onClick={scrollToAbout}
+          {/* <Tooltip label='Click to read about me!' color='blue'> */}
+          <div
+            className='mainCard transform cursor-pointer select-none -mt-48'
+            onClick={scrollToAbout}
+          >
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{
+                scale: 0.95,
+              }}
             >
+              <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{
-                  scale: 0.95,
+                initial={{ scale: 1.0 }}
+                animate={{ scale: 0.95 }}
+                transition={{
+                  delay: 4.5,
+                  duration: 0.25,
+                  repeat: 1,
+                  repeatType: 'reverse',
                 }}
               >
-                <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-
                 <div
                   className={`bg-slate-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
                   style={{ whiteSpace: 'nowrap' }}
@@ -90,8 +101,17 @@ const Top = ({ id }: { id: string }) => {
                   </div>
                 </div>
               </motion.div>
-            </div>
-          </Tooltip>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.99 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 3.3, duration: 1 }}
+                className={`flex items-center content-center justify-center ${display}`}
+              >
+                <h4>Tap to read about me!</h4>
+              </motion.div>
+            </motion.div>
+          </div>
+          {/* </Tooltip> */}
         </motion.div>
       </div>
       <video

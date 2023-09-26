@@ -1,5 +1,13 @@
 'use client';
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import {
+  Card,
+  Image,
+  Text,
+  Badge,
+  Button,
+  Group,
+  Tooltip,
+} from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -10,6 +18,7 @@ type ProjectTypes = {
   image: string;
   link: string;
   duration: number;
+  techList: string[];
 };
 
 const Project = ({
@@ -18,6 +27,7 @@ const Project = ({
   image,
   link,
   duration,
+  techList,
 }: ProjectTypes) => {
   const [opacity, setOpacity] = useState<string>('opacity-0 -translate-x-full'); //! opacity-100
 
@@ -39,15 +49,15 @@ const Project = ({
     <>
       <Card
         shadow='sm'
-        padding='lg'
+        padding='sm'
         radius='md'
         withBorder
         className={`mt-20 bg-[#24262b] relative`}
       >
         <Card.Section>
           <Image
-            src='https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80'
-            alt='Norway'
+            src={'firewatch2.png'} //! CHANGE TO ACTUAL
+            alt={`${title}`}
             className='h-70 sm:h-100'
           />
         </Card.Section>
@@ -57,9 +67,24 @@ const Project = ({
             {title}
           </Text>
           {/** CREATE IN-PROGRESS STATE */}
-          <Badge color='pink' variant='light'>
-            In progress
-          </Badge>
+          <Group
+            position='right'
+            spacing={0}
+            className='bg-black bg-opacity-25 rounded-full flex'
+          >
+            {techList.map((tech) => (
+              <Tooltip label={`${tech}`} key={tech}>
+                <Image
+                  src={`${tech}.svg`}
+                  width={19}
+                  height={19}
+                  className='m-1 select-none hover:cursor-pointer'
+                  alt={`${tech}`}
+                  draggable='false'
+                ></Image>
+              </Tooltip>
+            ))}
+          </Group>
         </Group>
 
         <Text size='sm' color='dimmed' className='mb-12'>
@@ -69,10 +94,11 @@ const Project = ({
         <Link
           href={link}
           target='_blank'
-          className='bg-red-700 text-white p-4 rounded-md absolute bottom-0 right-0'
+          className='bg-green-700 text-white p-1.5 rounded-md absolute bottom-1 right-1 shadow-2xl shadow-white'
         >
           Check it out
         </Link>
+       
       </Card>
     </>
   );
