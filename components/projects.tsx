@@ -23,12 +23,12 @@ const Projects = ({ id }: { id: string }) => {
   // };
 
   const handleEnter = () => {
-    window.history.replaceState(null, '', `#${id}`);
+    // window.history.replaceState(null, '', `#${id}`);
     setOpacity('opacity-100 transition-all duration-500');
   };
 
   const handleLeave = () => {
-    window.history.replaceState(`#${id}`, '', null);
+    // window.history.replaceState(`#${id}`, '', null);
     // setOpacity(`opacity-0 transition-all -translate-x-full duration-900`);
   };
 

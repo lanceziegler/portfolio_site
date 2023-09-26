@@ -108,7 +108,7 @@ const Contact = ({ id }: { id: string }) => {
       setAtBottom('opacity-100');
     }, 200);
     if (window.location.hash !== `#${id}`) {
-      window.history.replaceState(null, '', `#${id}`);
+      // window.history.replaceState(null, '', `#${id}`);
     }
     console.log(window.innerHeight);
   };
@@ -117,7 +117,7 @@ const Contact = ({ id }: { id: string }) => {
     // This function will be called when the waypoint enters the viewport
     setAtBottom('opacity-0');
     if (window.location.hash === `#${id}`) {
-      window.history.replaceState(null, '', window.location.pathname);
+      // window.history.replaceState(null, '', window.location.pathname);
     }
   };
 

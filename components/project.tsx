@@ -55,7 +55,7 @@ const Project = ({
       >
         <Card.Section>
           <Image
-            src={'./Firewatch2.png'} //! CHANGE TO ACTUAL
+            src='./Firewatch2.png' //! CHANGE TO ACTUAL with {}
             alt={`${title}`}
             className='h-70 sm:h-100'
           />

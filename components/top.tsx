@@ -34,11 +34,11 @@ const Top = ({ id }: { id: string }) => {
   };
 
   const handleEnter = () => {
-    window.history.replaceState(null, '', `/`);
+    // window.history.replaceState(null, '', `/`);
   };
 
   const handleLeave = () => {
-    window.history.replaceState(`#${id}`, '', null);
+    // window.history.replaceState(`#${id}`, '', null);
   };
 
   return (

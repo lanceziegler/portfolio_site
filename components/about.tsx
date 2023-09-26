@@ -17,13 +17,13 @@ const About = ({ id }: { id: string }) => {
   const handleEnter = () => {
     setSectionVisible(true);
     setTech('');
-    window.history.replaceState(null, '', `#${id}`);
+    // window.history.replaceState(null, '', `#${id}`);
     // console.log('About Waypoint Reached');
   };
 
   const handleLeave = () => {
     // console.log('Leaving About Waypoint');
-    window.history.replaceState(`#${id}`, '', null);
+    // window.history.replaceState(`#${id}`, '', null);
   };
 
   // useEffect(() => {
