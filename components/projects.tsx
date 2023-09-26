@@ -54,7 +54,7 @@ const Projects = ({ id }: { id: string }) => {
             link='https://www.reacti.me/'
             image=''
             duration={500}
-            techList={['react', 'next']}
+            techList={['react', 'next', 'gatsby', 'd3', 'jest', 'webpack']}
           />
         </div>
         <div>
@@ -64,18 +64,18 @@ const Projects = ({ id }: { id: string }) => {
             link='#projects'
             image=''
             duration={700}
-            techList={['mongo', 'react']}
+            techList={['next', 'typescript', 'node', 'postgres', 'tailwind']}
           />
         </div>{' '}
         {/**Test */}
         <div className=''>
           <Project
-            title='LiftLog'
-            description='Worked with a small team to build a web application for planning workouts and tracking progress.'
+            title='MovieKeeper'
+            description='Worked with a small team to build a web application for creating your personal movie list.'
             link='#projects'
             image=''
             duration={900}
-            techList={[]}
+            techList={['react', 'mongo', 'webpack']}
           />
         </div>
       </div>

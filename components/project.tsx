@@ -73,7 +73,7 @@ const Project = ({
           <Group
             position='right'
             spacing={0}
-            className='bg-black bg-opacity-25 rounded-full flex'
+            className='bg-white bg-opacity-20 rounded-full flex'
           >
             {techList.map((tech) => (
               <Tooltip label={`${tech}`} key={tech}>
