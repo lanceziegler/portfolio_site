@@ -3,9 +3,16 @@ import Top from '@/components/top';
 import About from '@/components/about';
 import Projects from '@/components/projects';
 import Contact from '@/components/contact';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Home = () => {
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
   return (
     <>
       {/* <div>

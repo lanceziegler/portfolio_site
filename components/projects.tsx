@@ -4,6 +4,7 @@ import { Waypoint } from 'react-waypoint';
 import { useEffect, useState } from 'react';
 import Project from './project';
 import { Title } from '@mantine/core';
+import canvasDots from '../public/heroCanvas';
 
 const Projects = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
@@ -31,11 +32,19 @@ const Projects = ({ id }: { id: string }) => {
     // setOpacity(`opacity-0 transition-all -translate-x-full duration-900`);
   };
 
+  useEffect(() => {
+    // canvasDots(); // Initialize your canvas animation
+    return () => {
+      // Optionally, you can remove the canvas animation when the component unmounts
+      // canvasDots.destroy();
+    };
+  }, []);
+
   return (
     <div className='bg-black relative -z-10'>
       <div
         id={id}
-        className={`min-h-screen space-x-5 mx-10 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center`}
+        className={`min-h-screen space-x-5 mx-10 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center projects-section`}
       >
         <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
         <div>

@@ -11,7 +11,7 @@ const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
 
   useEffect(() => {
-    canvasDots();
+    // canvasDots();
 
     setTimeout(() => {
       setGlassStyle(
@@ -19,7 +19,7 @@ const Top = ({ id }: { id: string }) => {
       );
     }, 800);
     return () => {
-      canvasDots;
+      // canvasDots;
     };
   }, []);
 
@@ -43,11 +43,14 @@ const Top = ({ id }: { id: string }) => {
       }}
       animate={{
         background:
-          'linear-gradient(352deg, rgba(0,0,0,1) 30%, rgba(0,0,0,0.1) 100%)',
+          'linear-gradient(352deg, rgba(0,0,0,1) 25%, rgba(0,0,0,0.1) 100%)',
       }}
       transition={{ duration: 4 }}
     >
-      <div id={id} className={`min-h-screen relative`}>
+      <div
+        id={id}
+        className={`min-h-screen relative flex justify-center items-center`}
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.99 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -56,7 +59,7 @@ const Top = ({ id }: { id: string }) => {
           <canvas className='connecting-dots' />
           <Tooltip label='Click to read about me!' color='blue'>
             <div
-              className='mainCard absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none'
+              className='mainCard transform cursor-pointer select-none -mt-48'
               onClick={scrollToAbout}
             >
               <motion.div

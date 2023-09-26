@@ -26,9 +26,9 @@ const About = ({ id }: { id: string }) => {
     window.history.replaceState(`#${id}`, '', null);
   };
 
-  useEffect(() => {
-    console.log('Current tech is ' + tech);
-  }, [tech]);
+  // useEffect(() => {
+  //   console.log('Current tech is ' + tech);
+  // }, [tech]);
 
   const onDragStart = (e: any) => {
     e.preventDefault();
@@ -90,9 +90,11 @@ const About = ({ id }: { id: string }) => {
                 <Text className='text-red-400 text-center font-inter'>
                   Ask me about:
                 </Text>
-                <Title className='text-white animate-pulse text-center font-inter colorCycle'>
-                  {tech}
-                </Title>
+                <div className='animate-pulse'>
+                  <h1 className='text-white text-center font-inter colorCycle font-bold text-4xl'>
+                    {tech}
+                  </h1>
+                </div>
               </div>
             </div>
           </Card>

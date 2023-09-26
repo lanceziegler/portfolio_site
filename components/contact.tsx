@@ -94,19 +94,31 @@ const Contact = ({ id }: { id: string }) => {
   //   };
   // }, []);
 
+  useEffect(() => {
+    // This effect will run when the component mounts
+    if (window.location.hash === `#${id}`) {
+      // If the current URL fragment matches this section's ID, no need to update it
+      return;
+    }
+  }, [id]);
+
   const handleEnter = () => {
     // This function will be called when the waypoint enters the viewport
     setTimeout(() => {
       setAtBottom('opacity-100');
     }, 200);
-    window.history.replaceState(null, '', `#${id}`);
+    if (window.location.hash !== `#${id}`) {
+      window.history.replaceState(null, '', `#${id}`);
+    }
     console.log(window.innerHeight);
   };
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
     setAtBottom('opacity-0');
-    window.history.replaceState(`#${id}`, '', null);
+    if (window.location.hash === `#${id}`) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
   };
 
   const handleClick = () => {
@@ -114,6 +126,7 @@ const Contact = ({ id }: { id: string }) => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
+
   return (
     <div
       id={id}
@@ -169,7 +182,7 @@ const Contact = ({ id }: { id: string }) => {
       </div>
       <UnstyledButton
         onClick={handleClick}
-        className={`${atBottom} transition-all duration-1000 absolute bottom-10 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
+        className={`${atBottom} transition-all duration-1000 absolute bottom-2 md:bottom-24 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
       >
         <Group>
           <Avatar size={70} color='black' src={'./arrow.svg'} />

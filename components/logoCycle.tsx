@@ -65,7 +65,7 @@ const LogoCycle = ({ setTech }) => {
   };
 
   return (
-    <div className=''>
+    <div className='scale-75 sm:scale-100'>
       <div className=''>
         <div className='text-2xl font-montserrat bold absolute top-1/2'>
           {/* {currentComponent.name.slice(0, -4)} */}

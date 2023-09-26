@@ -58,8 +58,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  perspective: 5000px; /* Adjust the perspective for a more pronounced 3D effect */
+  /* height: 100vh; */
+  perspective: 5000px;
 }
 
 .carousel {
@@ -80,7 +80,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  /* font-size: 18px; */
   transition: transform 0.5s;
 }
 
@@ -130,7 +130,7 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
