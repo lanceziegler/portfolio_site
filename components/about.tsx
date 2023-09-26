@@ -18,11 +18,11 @@ const About = ({ id }: { id: string }) => {
     setSectionVisible(true);
     setTech('');
     window.history.replaceState(null, '', `#${id}`);
-    console.log('About Waypoint Reached');
+    // console.log('About Waypoint Reached');
   };
 
   const handleLeave = () => {
-    console.log('Leaving About Waypoint');
+    // console.log('Leaving About Waypoint');
     window.history.replaceState(`#${id}`, '', null);
   };
 

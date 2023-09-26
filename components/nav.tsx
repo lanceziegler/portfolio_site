@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const Nav = () => {
-
-
   const [scrollStyle, setScrollStyle] = useState('');
   const [buttonBg, setButtonBg] = useState(
     'bg-black rounded-sm bg-opacity-75 px-3 hover:bg-opacity-100'
@@ -46,8 +44,6 @@ const Nav = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-
 
   return (
     <nav

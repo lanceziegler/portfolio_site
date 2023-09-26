@@ -9,6 +9,10 @@ import { Waypoint } from 'react-waypoint';
 
 const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
+  const isSafari = () => {
+    const ua = navigator.userAgent.toLowerCase();
+    return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
+  };
 
   useEffect(() => {
     // canvasDots();
