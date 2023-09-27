@@ -46,6 +46,8 @@ const LogoCycle = ({ setTech }) => {
 
   const currentComponent = components[currentIndex];
 
+  const [current, setCurrent] = useState(components[currentIndex]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % numComponents);

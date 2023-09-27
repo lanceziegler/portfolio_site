@@ -12,11 +12,10 @@ import Image from 'next/image';
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
-  const [tech, setTech] = useState('');
+  const [tech, setTech] = useState(undefined);
 
   const handleEnter = () => {
     setSectionVisible(true);
-    setTech('');
     // window.history.replaceState(null, '', `#${id}`);
     // console.log('About Waypoint Reached');
   };
