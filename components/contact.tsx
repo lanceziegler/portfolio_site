@@ -13,7 +13,6 @@ import {
   ActionIcon,
   rem,
 } from '@mantine/core';
-import canvasDots from '../public/heroCanvas';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -79,20 +78,33 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const initValues = {
+  email: '',
+  name: '',
+  message: '',
+};
+
+const initState = { values: initValues, isLoading: false };
+
 const Contact = ({ id }: { id: string }) => {
   const [scrollTop, setScrollTop] = useState(true);
   const [atBottom, setAtBottom] = useState('hidden');
   const [visible, setVisible] = useState('hidden');
 
+  const [state, setState] = useState(initState);
+
+  const { values, isLoading } = state;
+
   const { classes } = useStyles();
 
-  // useEffect(() => {
-  //   canvasDots();
-
-  //   return () => {
-  //     canvasDots;
-  //   };
-  // }, []);
+  const handleChange = ({ target }: any) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
 
   useEffect(() => {
     // This effect will run when the component mounts
@@ -127,6 +139,13 @@ const Contact = ({ id }: { id: string }) => {
     document.documentElement.scrollTop = 0;
   };
 
+  const onSubmit = async () => {
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+  };
+
   return (
     <div
       id={id}
@@ -152,19 +171,30 @@ const Contact = ({ id }: { id: string }) => {
           </div>
           <div className={classes.form}>
             <TextInput
-              label='Email'
-              placeholder='helloworld@email.com'
               required
+              value={values.email}
+              onChange={handleChange}
+              type='email'
+              label='Email'
+              name='email'
+              placeholder='name@email.com'
               classNames={{ input: classes.input, label: classes.inputLabel }}
             />
             <TextInput
+              required
+              value={values.name}
+              onChange={handleChange}
+              type='text'
               label='Name'
-              placeholder='Java Scriptington'
+              name='name'
               mt='md'
               classNames={{ input: classes.input, label: classes.inputLabel }}
             />
             <Textarea
               required
+              name='message'
+              value={values.message}
+              onChange={handleChange}
               label='Leave me a message!'
               placeholder='Lance, you seem like an awesome person.'
               minRows={4}
@@ -173,7 +203,12 @@ const Contact = ({ id }: { id: string }) => {
             />
 
             <Group position='right' mt='md'>
-              <Button className={`${classes.control} bg-blue-400`}>
+              <Button
+                className={`${classes.control} bg-blue-400 submitBtn`}
+                disabled={!values.name || !values.email || !values.message}
+                onClick={onSubmit}
+                loading={isLoading}
+              >
                 Send message
               </Button>
             </Group>
@@ -182,7 +217,7 @@ const Contact = ({ id }: { id: string }) => {
       </div>
       <UnstyledButton
         onClick={handleClick}
-        className={`${atBottom} transition-all duration-1000 absolute md:bottom-2 bottom-0 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
+        className={`${atBottom} transition-all duration-1000 absolute md:bottom-2 bottom-0 scale-50 sm:scale-100 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
       >
         <Group>
           <Avatar size={70} color='black' src={'./arrow.svg'} />

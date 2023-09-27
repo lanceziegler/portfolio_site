@@ -38,7 +38,7 @@ const About = ({ id }: { id: string }) => {
       id={id}
       className='min-h-screen tracking-wide diagonal bg-black flex justify-center content-center items-center z-10'
     >
-      <div className='flex flex-col-reverse lg:flex-row mt-10 z-30'>
+      <div className='flex flex-col lg:flex-row mt-10 z-30'>
         {/* Left Column */}
         <div className='px-4 flex items-center lg:flex-1 xl:m-10'>
           <Card
@@ -99,7 +99,7 @@ const About = ({ id }: { id: string }) => {
           </Card>
         </div>
         {/* Right Column */}
-        <div className='lg:flex-1 lg:static absolute right-1/2 smallCyclePosition -mt-10 sm:mt-3'>
+        <div className='lg:flex-1 lg:static smallCyclePosition sm:mt-3'>
           <div className='flex items-center justify-center'>
             <LogoCycle setTech={setTech} />
           </div>

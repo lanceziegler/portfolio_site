@@ -60,6 +60,7 @@ const LogoCycle = ({ setTech }) => {
 
   useEffect(() => {
     setTech(currentComponent.name.slice(0, -4));
+    console.log('tech is changing');
   }, [currentComponent.name, setTech]);
 
   return (
@@ -67,9 +68,9 @@ const LogoCycle = ({ setTech }) => {
       <div className='carousel-container'>
         {/* Fixed label outside of the carousel */}
         <div className='carousel'>
-          <div className='text-3xl font-montserrat bold absolute top-1/2'>
+          {/* <div className='text-3xl font-montserrat bold absolute top-1/2'>
             {currentComponent.name.slice(0, -4)}
-          </div>
+          </div> */}
           {components.map((Component, index) => {
             const angle = index * angleIncrement;
             const transformStyle = `translate(-50%, -50%) rotateY(${angle}rad) translateZ(200px)`;
