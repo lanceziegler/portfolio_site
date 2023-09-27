@@ -10,6 +10,10 @@ import { Waypoint } from 'react-waypoint';
 const Top = ({ id }: { id: string }) => {
   const [glassStyle, setGlassStyle] = useState('');
   const [display, setDisplay] = useState('');
+  const [gradient, setGradient] = useState(
+    'linear-gradient(352deg, rgba(0,0,0,1) 18%, rgba(0,0,0,0.1) 100%)'
+  );
+
   const isSafari = () => {
     const ua = navigator.userAgent.toLowerCase();
     return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
@@ -17,6 +21,13 @@ const Top = ({ id }: { id: string }) => {
 
   useEffect(() => {
     window.innerWidth <= 640 ? setDisplay('block') : setDisplay('hidden');
+    window.innerWidth <= 640
+      ? setGradient(
+          'linear-gradient(352deg, rgba(0,0,0,1) 16%, rgba(0,0,0,0.1) 100%)'
+        )
+      : setGradient(
+          'linear-gradient(352deg, rgba(0,0,0,1) 25%, rgba(0,0,0,0.1) 100%)'
+        );
     // canvasDots();
 
     setTimeout(() => {
@@ -48,8 +59,7 @@ const Top = ({ id }: { id: string }) => {
           'linear-gradient(352deg, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%)',
       }}
       animate={{
-        background:
-          'linear-gradient(352deg, rgba(0,0,0,1) 18%, rgba(0,0,0,0.1) 100%)',
+        background: `${gradient}`,
       }}
       transition={{ duration: 4 }}
     >
@@ -58,14 +68,14 @@ const Top = ({ id }: { id: string }) => {
         className={`min-h-screen relative flex justify-center items-center`}
       >
         <motion.div
-          initial={{ opacity: 0, scale: 0.99 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 'calc(-100vw + 50%)' }}
+          animate={{ opacity: 1, y: '0' }}
+          transition={{ duration: 1.2 }}
         >
-          <canvas className='connecting-dots' />
+          {/* <canvas className='connecting-dots' /> */}
           {/* <Tooltip label='Click to read about me!' color='blue'> */}
           <div
-            className='mainCard transform cursor-pointer select-none -mt-48'
+            className='mainCard transform cursor-pointer select-none'
             onClick={scrollToAbout}
           >
             <motion.div
@@ -86,7 +96,7 @@ const Top = ({ id }: { id: string }) => {
                 }}
               >
                 <div
-                  className={`bg-slate-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
+                  className={`bg-gray-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
                   style={{ whiteSpace: 'nowrap' }}
                 >
                   <div className='text-center'>
