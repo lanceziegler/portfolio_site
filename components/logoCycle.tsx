@@ -62,14 +62,12 @@ const LogoCycle = ({ setTech }) => {
 
   return (
     <div className='scale-50 md:scale-75 lg:scale-100'>
-      <div>
-        <div className='text-2xl font-montserrat bold absolute top-1/2'>
-          {/* {currentComponent.name.slice(0, -4)} */}
-        </div>{' '}
-      </div>
       <div className='carousel-container'>
         {/* Fixed label outside of the carousel */}
         <div className='carousel'>
+          <div className='text-3xl font-montserrat bold absolute top-1/2'>
+            {currentComponent.name.slice(0, -4)}
+          </div>
           {components.map((Component, index) => {
             const angle = index * angleIncrement;
             const transformStyle = `translate(-50%, -50%) rotateY(${angle}rad) translateZ(200px)`;
