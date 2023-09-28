@@ -19,6 +19,8 @@ const Top = ({ id }: { id: string }) => {
     return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
   };
 
+  //! Make into a server component by creating and importing stateful components - should fix initial video load
+
   useEffect(() => {
     window.innerWidth <= 640 ? setDisplay('block') : setDisplay('hidden');
     window.innerWidth <= 640

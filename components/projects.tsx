@@ -85,7 +85,7 @@ const Projects = ({ id }: { id: string }) => {
         </div>
         <div className='flex-1 lg:hover:scale-105 transition-transform'>
           <Project
-            title='Nutrition Website'
+            title='NutritionDVP'
             description='Website mockup for a burgeoning nutrition business created for a prospective business owner'
             link='#projects'
             image='./construction.png'

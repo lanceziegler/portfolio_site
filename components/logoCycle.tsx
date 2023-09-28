@@ -46,7 +46,7 @@ const LogoCycle = ({ setTech }) => {
 
   const currentComponent = components[currentIndex];
 
-  // const [current, setCurrent] = useState(components[currentIndex]);
+  const [current, setCurrent] = useState(components[currentIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -61,9 +61,7 @@ const LogoCycle = ({ setTech }) => {
   useEffect(() => {
     setTech(currentComponent.name.slice(0, -4));
     console.log('tech is changing');
-    console.log(currentIndex);
-  }, [currentComponent.name]);
-  // }, [currentComponent.name, setTech]);
+  }, [currentComponent.name, setTech]);
 
   return (
     <div className='scale-50 md:scale-75 lg:scale-100'>
