@@ -101,7 +101,7 @@ const Top = ({ id }: { id: string }) => {
                 >
                   <div className='text-center'>
                     <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-bold font-montserrat'>
-                      Lance Ziegler TEST
+                      Lance Ziegler
                     </h1>
                   </div>
                   <div className='text-center'>
