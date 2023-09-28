@@ -97,7 +97,7 @@ const Projects = ({ id }: { id: string }) => {
         <div className='flex-1 lg:hover:scale-105 transition-transform'>
           <Project
             title='MovieKeeper'
-            description='Worked with a small team to build a web application for creating a personal movie list.'
+            description='Worked with a small team to build a web application for creating a personal movie list'
             link='#projects'
             image='./construction.png'
             duration={900}

@@ -78,16 +78,15 @@ const About = ({ id }: { id: string }) => {
               </Card.Section>
             </div>
             <div className='flex flex-col content-center justify-center items-center py-9 px-4'>
-              <Text className='text-white text-2xl sm:text-4xl font-inter text-center font-semibold select-none'>
-                Driven to deliver high-quality technology solutions for your
-                business.
+              <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-wider'>
+                Delivering quality technology solutions for your business
               </Text>
-              <Text className='text-gray-200 text-md sm:text-lg text-center mt-6 font-inter mb-16'>
-                I&apos;m a full-stack developer who loves JavaScript, React, and
-                web development. The mix of creativity, logic, and endless
-                opportunities in this field excites me. When I&apos;m not
-                coding, I enjoy playing Smash Ultimate, lifting weights, and
-                messing around on the guitar.
+              <Text className='text-gray-200 text-sm sm:text-lg text-center mt-6 font-inter mb-16'>
+                I&apos;m a full-stack developer who strives to seamlessly
+                integrate essential application functionality with modern web
+                design practices. When I&apos;m not coding, I enjoy playing
+                Smash Ultimate, lifting weights, and messing around on the
+                guitar
               </Text>
               <div className='mt-6 absolute bottom-9'>
                 <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
