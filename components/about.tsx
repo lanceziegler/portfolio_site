@@ -6,14 +6,41 @@ import { motion } from 'framer-motion';
 import { Card, Text, Avatar, Title } from '@mantine/core';
 import LogoCycle from './logoCycle';
 import Image from 'next/image';
-
+import {
+  ReactLogo,
+  NextLogo,
+  TypeScriptLogo,
+  NodeLogo,
+  WebpackLogo,
+  MongoDBLogo,
+  PostgreSQLLogo,
+  GitLogo,
+  TailwindLogo,
+  BootstrapLogo,
+  JestLogo,
+} from './iconExports';
 //! Double check images on launched version
+
+const components: (() => React.JSX.Element)[] = [
+  ReactLogo,
+  NextLogo,
+  TypeScriptLogo,
+  NodeLogo,
+  WebpackLogo,
+  MongoDBLogo,
+  PostgreSQLLogo,
+  GitLogo,
+  TailwindLogo,
+  BootstrapLogo,
+  JestLogo,
+];
 
 const About = ({ id }: { id: string }) => {
   const [content, setContent] = useState<string | null>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
-  const [tech, setTech] = useState(undefined);
-
+  const [tech, setTech] = useState<string | undefined>(undefined);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentComponent = components[currentIndex];
   const handleEnter = () => {
     setSectionVisible(true);
     // window.history.replaceState(null, '', `#${id}`);
@@ -32,6 +59,12 @@ const About = ({ id }: { id: string }) => {
   const onDragStart = (e: any) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    if (tech === undefined) {
+      setTech(currentComponent.name.slice(0, -4));
+    }
+  }, [tech, currentComponent.name]);
 
   return (
     <div
