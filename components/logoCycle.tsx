@@ -38,7 +38,7 @@ const components: (() => React.JSX.Element)[] = [
   BootstrapLogo,
   JestLogo,
 ];
-//@ts-ignore
+// @ts-ignore
 const LogoCycle = ({ setTech }) => {
   const numComponents = components.length;
   const angleIncrement = (2 * Math.PI) / numComponents;
