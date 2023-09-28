@@ -30,8 +30,6 @@
 // ];
 // const colors = ['blue', 'red'];
 
-
-
 // const Flubber = () => {
 //   const [pathIndex, setPathIndex] = useState(0);
 //   const progress = useMotionValue(pathIndex);

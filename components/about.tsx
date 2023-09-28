@@ -44,7 +44,7 @@ const About = ({ id }: { id: string }) => {
       id={id}
       className='min-h-screen tracking-wide diagonal bg-black flex justify-center content-center items-center z-10'
     >
-      <div className='flex flex-col lg:flex-row mt-10 z-30'>
+      <div className='flex flex-col lg:flex-row lg:mt-10 z-30'>
         {/* Left Column */}
         <div className='px-4 flex items-center lg:flex-1 xl:m-10'>
           <Card
