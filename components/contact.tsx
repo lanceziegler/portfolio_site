@@ -158,6 +158,7 @@ const Contact = ({ id }: { id: string }) => {
         headers: {
           'Content-Type': 'application/json',
         },
+        // cache: 'force-cache',
         body: JSON.stringify(values),
       });
 
