@@ -2,9 +2,9 @@
 const nextConfig = {
   // output: 'export',
   // basePath: '/portfolio_site',
-  images: {
-    unoptimized: true,
-  },
+  // images: {
+  //   unoptimized: true,
+  // },
 };
 
 module.exports = nextConfig;

@@ -43,11 +43,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: true,
+//   },
+// };
+
+export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {
