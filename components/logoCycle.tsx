@@ -60,7 +60,7 @@ const LogoCycle = ({ setTech }) => {
 
   useEffect(() => {
     setTech(currentComponent.name.slice(0, -4));
-    console.log('tech is changing');
+    // console.log('tech is changing');
   }, [currentComponent.name, setTech]);
 
   return (

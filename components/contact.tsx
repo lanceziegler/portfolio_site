@@ -146,6 +146,39 @@ const Contact = ({ id }: { id: string }) => {
     }));
   };
 
+  const handleSubmit = async () => {
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+        // Handle success, e.g., show a success message
+      } else {
+        console.error('Error sending email');
+        // Handle error, e.g., show an error message
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle network error, e.g., show a generic error message
+    } finally {
+      setState((prev) => ({
+        ...prev,
+        isLoading: false,
+      }));
+    }
+  };
+
   return (
     <div
       id={id}
@@ -206,7 +239,7 @@ const Contact = ({ id }: { id: string }) => {
               <Button
                 className={`${classes.control} bg-blue-400 submitBtn`}
                 disabled={!values.name || !values.email || !values.message}
-                onClick={onSubmit}
+                onClick={handleSubmit}
                 loading={isLoading}
               >
                 Send message
