@@ -104,12 +104,20 @@ const Contact = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const lastSubmissionTime = localStorage.getItem('lastSubmissionTime');
-    if (
-      lastSubmissionTime &&
-      Date.now() - parseInt(lastSubmissionTime, 10) > successDuration
-    ) {
+    const isFirstVisit = localStorage.getItem('isFirstVisit');
+    if (isFirstVisit === null) {
+      // If it's the user's first visit, show the form
+      localStorage.setItem('isFirstVisit', 'false');
       setShowSuccessMessage(false);
-      localStorage.setItem(successKey, 'false');
+    } else if (
+      lastSubmissionTime &&
+      Date.now() - parseInt(lastSubmissionTime, 10) <= successDuration
+    ) {
+      // If it's not the first visit and less than 5 minutes have passed since the last submission, show the success message
+      setShowSuccessMessage(true);
+    } else {
+      // If it's not the first visit and more than 5 minutes have passed since the last submission, show the form
+      setShowSuccessMessage(false);
     }
   }, []);
 
@@ -156,9 +164,9 @@ const Contact = ({ id }: { id: string }) => {
   };
 
   const handleTimeout = () => {
-    setShowSuccessMessage(true);
     localStorage.setItem(successKey, 'true');
     localStorage.setItem('lastSubmissionTime', Date.now().toString());
+    setShowSuccessMessage(true);
   };
 
   //! nodemailer does not work with static site
@@ -227,7 +235,7 @@ const Contact = ({ id }: { id: string }) => {
             </Text>
           </div>
 
-          {showSuccessMessage !== false ? (
+          {showSuccessMessage ? (
             <div className='flex flex-col justify-center items-center content-center'>
               <p className='text-white font-inter pb-3'>
                 Thanks for reaching out!
