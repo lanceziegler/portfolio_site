@@ -87,18 +87,31 @@ const initValues = {
 
 const initState = { values: initValues, isLoading: false };
 
+const successKey = 'showSuccess';
+const successDuration = 5 * 60 * 1000; // 5 minutes
+
 const Contact = ({ id }: { id: string }) => {
   const [scrollTop, setScrollTop] = useState(true);
   const [atBottom, setAtBottom] = useState('hidden');
   const [visible, setVisible] = useState('hidden');
-
   const [stateFormSpree, handleSubmit] = useForm('xdorpavq');
-
   const [state, setState] = useState(initState);
-
   const { values, isLoading } = state;
-
   const { classes } = useStyles();
+  const [showSuccessMessage, setShowSuccessMessage] = useState<
+    undefined | boolean
+  >(undefined);
+
+  useEffect(() => {
+    const lastSubmissionTime = localStorage.getItem('lastSubmissionTime');
+    if (
+      lastSubmissionTime &&
+      Date.now() - parseInt(lastSubmissionTime, 10) > successDuration
+    ) {
+      setShowSuccessMessage(false);
+      localStorage.setItem(successKey, 'false');
+    }
+  }, []);
 
   const handleChange = ({ target }: any) =>
     setState((prev) => ({
@@ -140,6 +153,12 @@ const Contact = ({ id }: { id: string }) => {
     // Code for scrolling back to top
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  };
+
+  const handleTimeout = () => {
+    setShowSuccessMessage(true);
+    localStorage.setItem(successKey, 'true');
+    localStorage.setItem('lastSubmissionTime', Date.now().toString());
   };
 
   //! nodemailer does not work with static site
@@ -208,7 +227,7 @@ const Contact = ({ id }: { id: string }) => {
             </Text>
           </div>
 
-          {stateFormSpree.succeeded ? (
+          {showSuccessMessage !== false ? (
             <div className='flex flex-col justify-center items-center content-center'>
               <p className='text-white font-inter pb-3'>
                 Thanks for reaching out!
@@ -233,7 +252,13 @@ const Contact = ({ id }: { id: string }) => {
               </svg>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleTimeout();
+                handleSubmit(e);
+              }}
+            >
               <div className={classes.form}>
                 <TextInput
                   required
