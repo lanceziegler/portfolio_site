@@ -81,7 +81,7 @@ const About = ({ id }: { id: string }) => {
               <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-wider'>
                 Delivering quality technology solutions for your business
               </Text>
-              <Text className='text-gray-200 text-sm sm:text-lg text-center mt-6 font-inter mb-16'>
+              <Text className='text-gray-200 text-sm sm:text-lg text-center mt-6 font-inter mb-16 lg:mb-5 md:px-10'>
                 I&apos;m a full-stack developer who strives to seamlessly
                 integrate essential application functionality with modern web
                 design practices. When I&apos;m not coding, I enjoy playing
@@ -90,14 +90,15 @@ const About = ({ id }: { id: string }) => {
               </Text>
               <div className='mt-6 absolute bottom-9'>
                 <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-
-                <Text className='text-red-400 text-center font-inter'>
-                  Ask me about:
-                </Text>
-                <div className='animate-pulse'>
-                  <h1 className='text-white text-center font-inter colorCycle font-bold text-4xl'>
-                    {tech}
-                  </h1>
+                <div className='lg:hidden'>
+                  <Text className='text-red-400 text-center font-inter'>
+                    Ask me about:
+                  </Text>
+                  <div className='animate-pulse'>
+                    <h1 className='text-white text-center font-inter colorCycle font-bold text-4xl'>
+                      {tech}
+                    </h1>
+                  </div>
                 </div>
               </div>
             </div>
