@@ -13,6 +13,7 @@ import {
   ActionIcon,
   rem,
 } from '@mantine/core';
+import { useForm, ValidationError } from '@formspree/react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -91,6 +92,8 @@ const Contact = ({ id }: { id: string }) => {
   const [atBottom, setAtBottom] = useState('hidden');
   const [visible, setVisible] = useState('hidden');
 
+  const [stateFormSpree, handleSubmit] = useForm('xdorpavq');
+
   const [state, setState] = useState(initState);
 
   const { values, isLoading } = state;
@@ -139,46 +142,47 @@ const Contact = ({ id }: { id: string }) => {
     document.documentElement.scrollTop = 0;
   };
 
-  const onSubmit = async () => {
-    setState((prev) => ({
-      ...prev,
-      isLoading: true,
-    }));
-  };
+  //! nodemailer does not work with static site
+  // const onSubmit = async () => {
+  //   setState((prev) => ({
+  //     ...prev,
+  //     isLoading: true,
+  //   }));
+  // };
 
-  const handleSubmit = async () => {
-    setState((prev) => ({
-      ...prev,
-      isLoading: true,
-    }));
+  // const handleSubmit = async () => {
+  //   setState((prev) => ({
+  //     ...prev,
+  //     isLoading: true,
+  //   }));
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // cache: 'force-cache',
-        body: JSON.stringify(values),
-      });
+  //   try {
+  //     const response = await fetch('/api/contact', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       // cache: 'force-cache',
+  //       body: JSON.stringify(values),
+  //     });
 
-      if (response.ok) {
-        console.log('Email sent successfully');
-        // Handle success, e.g., show a success message
-      } else {
-        console.error('Error sending email');
-        // Handle error, e.g., show an error message
-      }
-    } catch (error) {
-      console.error(error);
-      // Handle network error, e.g., show a generic error message
-    } finally {
-      setState((prev) => ({
-        ...prev,
-        isLoading: false,
-      }));
-    }
-  };
+  //     if (response.ok) {
+  //       console.log('Email sent successfully');
+  //       // Handle success, e.g., show a success message
+  //     } else {
+  //       console.error('Error sending email');
+  //       // Handle error, e.g., show an error message
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle network error, e.g., show a generic error message
+  //   } finally {
+  //     setState((prev) => ({
+  //       ...prev,
+  //       isLoading: false,
+  //     }));
+  //   }
+  // };
 
   return (
     <div
@@ -203,52 +207,92 @@ const Contact = ({ id }: { id: string }) => {
               soon as possible.
             </Text>
           </div>
-          <div className={classes.form}>
-            <TextInput
-              required
-              value={values.email}
-              onChange={handleChange}
-              type='email'
-              label='Email'
-              name='email'
-              placeholder='name@email.com'
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <TextInput
-              required
-              value={values.name}
-              onChange={handleChange}
-              type='text'
-              label='Name'
-              name='name'
-              mt='md'
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <Textarea
-              required
-              name='message'
-              value={values.message}
-              onChange={handleChange}
-              label='Leave me a message!'
-              placeholder='Lance, you seem like an awesome person.'
-              minRows={4}
-              mt='md'
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
 
-            <Group position='right' mt='md'>
-              <Button
-                className={`${classes.control} bg-blue-400 submitBtn`}
-                disabled={!values.name || !values.email || !values.message}
-                onClick={handleSubmit}
-                loading={isLoading}
+          {stateFormSpree.succeeded ? (
+            <div className='flex flex-col justify-center items-center content-center'>
+              <p className='text-white font-inter pb-3'>
+                Thanks for reaching out!
+              </p>
+              <svg
+                className='checkmark'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 52 52'
               >
-                Send message
-              </Button>
-            </Group>
-          </div>
+                <circle
+                  className='checkmark__circle'
+                  cx='26'
+                  cy='26'
+                  r='25'
+                  fill='none'
+                />
+                <path
+                  className='checkmark__check'
+                  fill='none'
+                  d='M14.1 27.2l7.1 7.2 16.7-16.8'
+                />
+              </svg>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className={classes.form}>
+                <TextInput
+                  required
+                  value={values.email}
+                  onChange={handleChange}
+                  type='email'
+                  label='Email'
+                  name='email'
+                  placeholder='name@email.com'
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+                <TextInput
+                  required
+                  value={values.name}
+                  onChange={handleChange}
+                  type='text'
+                  label='Name'
+                  name='name'
+                  mt='md'
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+                <Textarea
+                  required
+                  name='message'
+                  value={values.message}
+                  onChange={handleChange}
+                  label='Leave me a message!'
+                  placeholder='Lance, you seem like an awesome person.'
+                  minRows={4}
+                  mt='md'
+                  classNames={{
+                    input: classes.input,
+                    label: classes.inputLabel,
+                  }}
+                />
+
+                <Group position='right' mt='md'>
+                  <Button
+                    className={`${classes.control} bg-blue-400 submitBtn`}
+                    disabled={!values.name || !values.email || !values.message}
+                    // onClick={handleSubmit}
+                    loading={isLoading}
+                    type='submit'
+                  >
+                    Send message
+                  </Button>
+                </Group>
+              </div>
+            </form>
+          )}
         </SimpleGrid>
       </div>
+
       <UnstyledButton
         onClick={handleClick}
         className={`${atBottom} transition-all duration-1000 absolute md:bottom-2 bottom-0 scale-50 sm:scale-100 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
