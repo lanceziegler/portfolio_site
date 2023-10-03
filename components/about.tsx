@@ -78,7 +78,7 @@ const About = ({ id }: { id: string }) => {
               </Card.Section>
             </div>
             <div className='flex flex-col content-center justify-center items-center py-9 px-4'>
-              <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-wider'>
+              <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-wide'>
                 Delivering quality technology solutions for your business
               </Text>
               <Text className='text-gray-200 text-sm sm:text-lg text-center mt-6 font-inter mb-16 lg:mb-5 md:px-10'>
