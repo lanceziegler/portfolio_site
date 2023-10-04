@@ -151,10 +151,10 @@ const Contact = ({ id }: { id: string }) => {
 
   const handleLeave = () => {
     // This function will be called when the waypoint enters the viewport
-    setAtBottom('opacity-0');
-    if (window.location.hash === `#${id}`) {
-      // window.history.replaceState(null, '', window.location.pathname);
-    }
+    //! setAtBottom('opacity-0');
+    // if (window.location.hash === `#${id}`) {
+    //   // window.history.replaceState(null, '', window.location.pathname);
+    // }
   };
 
   const handleClick = () => {
