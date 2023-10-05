@@ -14,7 +14,7 @@ const Nav = () => {
   const [topHover, setTopHover] = useState(
     'hover:bg-clip-padding hover:backdrop-filter hover:backdrop-blur-sm hover:bg-opacity-10'
   );
-  const [display, setDisplay] = useState('');
+  const [display, setDisplay] = useState('hidden');
   //   const [background, setBackground] = useState('bg-slate-800');
 
   const buttonStyles = `hover:text-blue-400 hover:translate-x-1 decoration-2 rounded-sm active:text-slate-200 p-4 transition-all font-montserrat ${textColor} ${buttonBg}`;

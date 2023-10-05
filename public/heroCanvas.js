@@ -104,8 +104,12 @@ const canvasDots = function () {
     this.vx = -0.5 + Math.random();
     this.vy = -0.5 + Math.random();
 
-    this.radius = Math.random() * 1.1;
-
+    // Large dots on small screens, small dots on large screens
+    if (windowSize < 500) {
+      this.radius = Math.random() * 5.1;
+    } else {
+      this.radius = Math.random() * 1.1;
+    }
     this.colour = colorDot[Math.floor(Math.random() * colorDot.length)];
   }
 

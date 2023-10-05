@@ -30,15 +30,16 @@ const Top = ({ id }: { id: string }) => {
       : setGradient(
           'linear-gradient(352deg, rgba(0,0,0,1) 25%, rgba(0,0,0,0.1) 100%)'
         );
-    // canvasDots();
-
+    // if (typeof window !== 'undefined') {
+    canvasDots();
+    // }
     setTimeout(() => {
       setGlassStyle(
         'bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40'
       );
-    }, 800);
+    }, 4000);
     return () => {
-      // canvasDots;
+      canvasDots;
     };
   }, []);
 
@@ -69,12 +70,14 @@ const Top = ({ id }: { id: string }) => {
         id={id}
         className={`min-h-screen relative flex justify-center items-center`}
       >
+        <div className='opacity-0 dots-appear absolute'>
+          <canvas className='connecting-dots' />
+        </div>
         <motion.div
-          initial={{ opacity: 0, y: 'calc(-100vw + 50%)' }}
-          animate={{ opacity: 1, y: '0' }}
-          transition={{ duration: 1.2 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 4 }}
         >
-          {/* <canvas className='connecting-dots' /> */}
           {/* <Tooltip label='Click to read about me!' color='blue'> */}
           <div
             className='mainCard transform cursor-pointer select-none'
@@ -102,7 +105,7 @@ const Top = ({ id }: { id: string }) => {
                   style={{ whiteSpace: 'nowrap' }}
                 >
                   <div className='text-center'>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-bold font-montserrat'>
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-montserrat'>
                       Lance Ziegler
                     </h1>
                   </div>
@@ -126,7 +129,7 @@ const Top = ({ id }: { id: string }) => {
           {/* </Tooltip> */}
         </motion.div>
       </div>
-      <video
+      {/* <video
         width='100%'
         height='100vh'
         autoPlay
@@ -137,7 +140,7 @@ const Top = ({ id }: { id: string }) => {
         playsInline
       >
         <source src='beach3.mp4' type='video/mp4' />
-      </video>
+      </video> */}
     </motion.div>
   );
 };

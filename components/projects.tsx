@@ -58,9 +58,11 @@ const Projects = ({ id }: { id: string }) => {
   }, []);
 
   return (
-    <div className='min-h-screen bg-black relative flex items-center content-center justify-center'>
+    <div
+      className='min-h-screen bg-black relative flex items-center content-center justify-center'
+      id={id}
+    >
       <div
-        id={id}
         className={`lg:space-x-5 mx-3 sm:mx-10 lg:mx-3 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center projects-section lg:mt-20`}
       >
         <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
@@ -85,7 +87,7 @@ const Projects = ({ id }: { id: string }) => {
         </div>
         <div className='flex-1 lg:hover:scale-105 transition-transform'>
           <Project
-            title='NutritionDVP'
+            title='DP Nutrition'
             description='Website mockup for a burgeoning nutrition business created for a prospective business owner'
             link='#projects'
             image='./construction.png'

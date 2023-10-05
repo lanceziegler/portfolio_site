@@ -25,6 +25,9 @@ const config: Config = {
         '900': '900ms',
         '750': '750ms',
       },
+      scale: {
+        '95': '0.95',
+      },
     },
   },
   plugins: [],

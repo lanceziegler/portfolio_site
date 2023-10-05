@@ -48,7 +48,7 @@ const About = ({ id }: { id: string }) => {
         {/* Left Column */}
         <div className='px-4 flex items-center lg:flex-1 xl:m-10'>
           <Card
-            className='flex content-center items-center relative p-2 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle'
+            className='flex content-center items-center relative p-2 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle pt-7'
             // onDragStart={onDragStart}
           >
             {/* NAME, ARROW, PICTURE */}
@@ -78,10 +78,10 @@ const About = ({ id }: { id: string }) => {
               </Card.Section>
             </div>
             <div className='flex flex-col content-center justify-center items-center py-9 px-4'>
-              <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-wide'>
-                Delivering quality technology solutions for your business
+              <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-tighter 2xl:text-4xl 2xl:px-5'>
+                Delivering quality technology solutions
               </Text>
-              <Text className='text-gray-200 text-sm sm:text-lg text-center mt-6 font-inter mb-16 lg:mb-5 md:px-10'>
+              <Text className='text-gray-300 text-sm sm:text-lg text-center mt-6 font-inter mb-16 lg:mb-5 md:px-10'>
                 I&apos;m a full-stack developer who strives to seamlessly
                 integrate essential application functionality with modern web
                 design practices. When I&apos;m not coding, I enjoy playing
@@ -105,7 +105,7 @@ const About = ({ id }: { id: string }) => {
           </Card>
         </div>
         {/* Right Column */}
-        <div className='lg:flex-1 lg:static smallCyclePosition sm:mt-3'>
+        <div className='lg:flex-1 lg:static smallCyclePosition md:scale-95'>
           <div className='flex items-center justify-center'>
             {carousel ? <LogoCycle setTech={setTech} /> : <></>}
           </div>
