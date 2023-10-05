@@ -125,7 +125,7 @@ body {
   color: red;
 }
 
-.background-video {
+/* .background-video {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -135,7 +135,7 @@ body {
   top: 0;
   bottom: 0;
   z-index: -11;
-}
+} */
 
 .colorCycle {
   animation: color-change 5s infinite;

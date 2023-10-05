@@ -27,7 +27,14 @@ const config: Config = {
       },
       scale: {
         '95': '0.95',
+        '85': '0.85',
       },
+    },
+    dropShadow: {
+      glow: [
+        '0 0px 20px rgba(255,255, 255, 0.28)',
+        '0 0px 65px rgba(255, 255,255, 0.02)',
+      ],
     },
   },
   plugins: [],

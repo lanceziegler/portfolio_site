@@ -19,10 +19,10 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
     boxSizing: 'border-box',
-    backgroundImage: `linear-gradient(-90deg, ${
-      theme.colors[theme.primaryColor][4]
-    } 0%, ${theme.colors[theme.primaryColor][6]} 50%)`,
-    borderRadius: theme.radius.xl,
+    // backgroundImage: `linear-gradient(50deg, ${
+    //   theme.colors[theme.primaryColor][0]
+    // } 1%,${theme.colors[theme.primaryColor][2]} 3%, ${theme.colors.dark} 40%)`,
+    // // borderRadius: theme.radius.xl,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 
     [theme.fn.smallerThan('sm')]: {
@@ -72,6 +72,13 @@ const useStyles = createStyles((theme) => ({
 
   inputLabel: {
     color: theme.black,
+    backgroundColor: theme.white,
+    padding: 2,
+    paddingLeft: 15,
+    paddingRight: 5,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 3,
+    marginBottom: 2,
   },
 
   control: {
@@ -214,34 +221,52 @@ const Contact = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-blue-500 via-black via-95% to-black relative to-30%`}
+      className={`flex justify-center items-center min-h-screen tracking-wide bg-gradient-to-t from-sky-900 via-black via-95% to-black relative to-30%`}
     >
       {/* <canvas className='connecting-dots' /> */}
       <div
-        className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 mx-6`}
+        className={`${classes.wrapper} ${atBottom} transition-opacity duration-1000 mx-6 relative rounded-3xl drop-shadow-glow border-solid border-4 bg-black`}
       >
+        <video
+          width='100%'
+          height='100%'
+          autoPlay
+          muted
+          loop
+          preload='auto'
+          className='background-video absolute top-0 left-0 right-0 bottom-0 object-cover w-full h-full opacity-40 rounded-3xl'
+          playsInline
+        >
+          <source src='beach3.mp4' type='video/mp4' />
+        </video>
         <SimpleGrid
           cols={2}
           spacing={50}
           breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+          className='relative'
         >
           <div>
-            <Title className={classes.title}>Let{"'"}s get in touch</Title>
-            <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
+            <div>
+              <Title className={classes.title}>Let{"'"}s get in touch</Title>
+              <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
 
-            <Text className={classes.description} mt='sm' mb={30}>
-              Enter your name and email address and I will get back to you as
-              soon as possible.
-            </Text>
+              <Text
+                className={`${classes.description} text-white text-lg tracking-tight`}
+                mt='sm'
+              >
+                Enter your name and email address and I will get back to you as
+                soon as possible.
+              </Text>
+            </div>
           </div>
 
           {showSuccessMessage ? (
-            <div className='flex flex-col justify-center items-center content-center'>
-              <p className='text-white font-inter pb-3'>
+            <div className='flex flex-col justify-center items-center content-center bg-black bg-opacity-50 rounded-xl p-5'>
+              <p className='text-white font-inter pb-3 text-xl font-semibold'>
                 Thanks for reaching out!
               </p>
               <svg
-                className='checkmark'
+                className='checkmark mt-3'
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='0 0 52 52'
               >
@@ -267,7 +292,7 @@ const Contact = ({ id }: { id: string }) => {
                 handleSubmit(e);
               }}
             >
-              <div className={classes.form}>
+              <div className={`classes.form`}>
                 <TextInput
                   required
                   value={values.email}
@@ -281,19 +306,23 @@ const Contact = ({ id }: { id: string }) => {
                     label: classes.inputLabel,
                   }}
                 />
-                <TextInput
-                  required
-                  value={values.name}
-                  onChange={handleChange}
-                  type='text'
-                  label='Name'
-                  name='name'
-                  mt='md'
-                  classNames={{
-                    input: classes.input,
-                    label: classes.inputLabel,
-                  }}
-                />
+                <div>
+                  <span className='bg-white rounded-t-lg'>
+                    <TextInput
+                      required
+                      value={values.name}
+                      onChange={handleChange}
+                      type='text'
+                      label='Name'
+                      name='name'
+                      mt='md'
+                      classNames={{
+                        input: classes.input,
+                        label: classes.inputLabel,
+                      }}
+                    />
+                  </span>
+                </div>
                 <Textarea
                   required
                   name='message'
@@ -311,7 +340,7 @@ const Contact = ({ id }: { id: string }) => {
 
                 <Group position='right' mt='md'>
                   <Button
-                    className={`${classes.control} bg-blue-400 submitBtn`}
+                    className={`${classes.control} bg-blue-600 submitBtn`}
                     disabled={!values.name || !values.email || !values.message}
                     // onClick={handleSubmit}
                     loading={isLoading}
@@ -328,12 +357,16 @@ const Contact = ({ id }: { id: string }) => {
 
       <UnstyledButton
         onClick={handleClick}
-        className={`${atBottom} transition-all duration-1000 absolute md:bottom-2 bottom-0 scale-50 sm:scale-100 xl:right-32 bg-white hover:shadow-2xl hover:scale-105 rounded-xl hideShowDiv`}
+        className={`${atBottom} transition-all duration-1000 absolute md:bottom-10 bottom-0 scale-50 sm:scale-75 xl:right-32 rounded-xl hideShowDiv`}
       >
-        <Group>
-          <Avatar size={70} color='black' src={'./arrow.svg'} />
+        <Group className='flex flex-col items-center content-center justify-center'>
+          <Avatar
+            size={60}
+            src={'./arrow.svg'}
+            className='bg-white rounded-full hover:scale-125 transition-all'
+          />
           <div>
-            <Text color='black' weight={500} size={20} className='pr-6'>
+            <Text color='white' weight={500} size={30}>
               Back to top
             </Text>
           </div>
