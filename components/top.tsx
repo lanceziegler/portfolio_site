@@ -65,7 +65,6 @@ const Top = ({ id }: { id: string }) => {
         background: `${gradient}`,
       }}
       transition={{ duration: 4 }}
-      className='bg-black'
     >
       <div
         id={id}
