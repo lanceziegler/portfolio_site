@@ -63,6 +63,7 @@ const LogoCycle = ({ setTech }) => {
     // console.log('tech is changing');
   }, [currentComponent.name, setTech]);
 
+  //! https://www.youtube.com/watch?v=odv5I0QSs4c
   return (
     <div className='scale-50 md:scale-75 lg:scale-100'>
       <div className='carousel-container'>
