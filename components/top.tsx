@@ -33,11 +33,9 @@ const Top = ({ id }: { id: string }) => {
     // if (typeof window !== 'undefined') {
     canvasDots();
     // }
-    setTimeout(() => {
-      setGlassStyle(
-        'bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40'
-      );
-    }, 4000);
+
+    setGlassStyle('bg-opacity-80 bg-gray-800 shadow-lg shadow-slate-900');
+
     return () => {
       canvasDots;
     };
@@ -90,32 +88,53 @@ const Top = ({ id }: { id: string }) => {
               }}
             >
               <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-              <motion.div
-                initial={{ scale: 1.0 }}
-                animate={{ scale: 0.95 }}
-                transition={{
-                  delay: 4.5,
-                  duration: 0.25,
-                  repeat: 1,
-                  repeatType: 'reverse',
-                }}
-              >
-                <div
-                  className={`bg-gray-800 rounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
-                  style={{ whiteSpace: 'nowrap' }}
+              {display === 'block' ? (
+                <motion.div
+                  initial={{ scale: 1.0 }}
+                  animate={{ scale: 0.95 }}
+                  transition={{
+                    delay: 4.5,
+                    duration: 0.25,
+                    repeat: 1,
+                    repeatType: 'reverse',
+                  }}
                 >
-                  <div className='text-center'>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-montserrat'>
-                      Lance Ziegler
-                    </h1>
+                  <div
+                    className={`nameContainerrounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    <div className='text-center'>
+                      <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-montserrat'>
+                        Lance Ziegler
+                      </h1>
+                    </div>
+                    <div className='text-center'>
+                      <p className='text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-slate-400 font-montserrat tracking-tighter'>
+                        software developer
+                      </p>
+                    </div>
                   </div>
-                  <div className='text-center'>
-                    <p className='text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-slate-400 font-montserrat tracking-tighter'>
-                      software developer
-                    </p>
+                </motion.div>
+              ) : (
+                <div>
+                  <div
+                    className={`nameContainerrounded-md ${glassStyle} transition-colors duration-1000 flex flex-col justify-center items-center p-5 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl`}
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    <div className='text-center'>
+                      <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-wide text-slate-300 font-montserrat'>
+                        Lance Ziegler
+                      </h1>
+                    </div>
+                    <div className='text-center'>
+                      <p className='text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-slate-400 font-montserrat tracking-tighter'>
+                        software developer
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              )}
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.99 }}
                 animate={{ opacity: 1, scale: 1 }}
