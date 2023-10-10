@@ -98,9 +98,9 @@ const Projects = ({ id }: { id: string }) => {
         </div>
         <div className='flex-1 lg:hover:scale-105 transition-transform'>
           <Project
-            title='MovieKeeper'
-            description='Worked with a small team to build a web application for creating a personal movie list'
-            link='#projects'
+            title='FilmRanker'
+            description='A web application, currently in development, for creating a personal movie tier list'
+            link='https://github.com/lanceziegler/filmranker'
             image='./construction.png'
             duration={900}
             techList={['react', 'mongo', 'webpack']}
