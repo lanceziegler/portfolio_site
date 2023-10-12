@@ -8,15 +8,24 @@ import LogoCycle from './logoCycle';
 import Image from 'next/image';
 
 const About = ({ id }: { id: string }) => {
-  const [content, setContent] = useState<string | null>(null);
-  const [sectionVisible, setSectionVisible] = useState(false);
+  const [visibleCard, setVisibleCard] = useState<string | null>(
+    'translate-y-20 opacity-0'
+  );
+  const [visibleCarousel, setVisibleCarousel] = useState<string | null>(
+    'opacity-0'
+  );
   const [tech, setTech] = useState<string | undefined>(undefined);
   const [carousel, setCarousel] = useState(true);
 
   const handleEnter = () => {
-    setSectionVisible(true);
     // window.history.replaceState(null, '', `#${id}`);
     // console.log('About Waypoint Reached');
+    setVisibleCard(
+      'translate-y-0 opacity-100 transition-all duration-500 ease-out'
+    );
+    setVisibleCarousel(
+      'opacity-100 transition-all delay-500 duration-1000 ease-out'
+    );
   };
 
   const handleLeave = () => {
@@ -46,7 +55,9 @@ const About = ({ id }: { id: string }) => {
     >
       <div className='flex flex-col lg:flex-row lg:mt-10 z-30'>
         {/* Left Column */}
-        <div className='px-4 flex items-center lg:flex-1 xl:m-10'>
+        <div
+          className={`${visibleCard} px-4 flex items-center lg:flex-1 xl:m-10`}
+        >
           <Card
             className='flex content-center items-center relative p-2 flex-col bg-[#24262b] bg-opacity-75 drop-shadow-2xl rounded-3xl cardStyle pt-7'
             // onDragStart={onDragStart}
@@ -77,6 +88,8 @@ const About = ({ id }: { id: string }) => {
                 />
               </Card.Section>
             </div>
+            <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
+
             <div className='flex flex-col content-center justify-center items-center py-9 px-4'>
               <Text className='text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-inter text-center select-none tracking-tighter 2xl:text-4xl 2xl:px-5'>
                 Delivering quality technology solutions
@@ -89,7 +102,7 @@ const About = ({ id }: { id: string }) => {
                 guitar
               </Text>
               <div className='mt-6 absolute bottom-9'>
-                <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
+                {/** Old waypoint location */}
                 <div className='lg:hidden'>
                   <Text className='text-red-400 text-center font-inter'>
                     Ask me about:
@@ -105,8 +118,10 @@ const About = ({ id }: { id: string }) => {
           </Card>
         </div>
         {/* Right Column */}
-        <div className='lg:flex-1 lg:static smallCyclePosition md:scale-95'>
-          <div className='flex items-center justify-center'>
+        <div
+          className={`${visibleCarousel} lg:flex-1 lg:static smallCyclePosition`}
+        >
+          <div className='flex items-center justify-center lg:mt-16'>
             {carousel ? <LogoCycle setTech={setTech} /> : <></>}
           </div>
         </div>
