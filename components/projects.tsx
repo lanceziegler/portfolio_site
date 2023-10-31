@@ -66,7 +66,7 @@ const Projects = ({ id }: { id: string }) => {
         className={`lg:space-x-5 mx-3 sm:mx-10 lg:mx-3 flex flex-col lg:flex-row ${opacity} justify-center content-center items-center projects-section lg:mt-20`}
       >
         <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
-        <div className='flex-1 lg:hover:scale-105 transition-transform'>
+        <div className='flex-1 lg:hover:scale-105 transition-transform image-container'>
           <Project
             title='Reactime'
             description='Open source chrome developer tool for debugging and performance monitoring in React applications'
@@ -85,7 +85,7 @@ const Projects = ({ id }: { id: string }) => {
             isNotMobile={isNotMobile}
           />
         </div>
-        <div className='flex-1 lg:hover:scale-105 transition-transform'>
+        <div className='flex-1 lg:hover:scale-105 transition-transform image-container'>
           <Project
             title='DP Nutrition'
             description='Website mockup for a burgeoning nutrition business created for a prospective business owner'
@@ -96,12 +96,12 @@ const Projects = ({ id }: { id: string }) => {
             isNotMobile={isNotMobile}
           />
         </div>
-        <div className='flex-1 lg:hover:scale-105 transition-transform'>
+        <div className='flex-1 lg:hover:scale-105 transition-transform image-container'>
           <Project
             title='FilmRanker'
             description='A web application, currently in development, for creating a personal movie tier list'
             link='https://github.com/lanceziegler/filmranker'
-            image='./construction.png'
+            image='./filmRankerImage.png'
             duration={900}
             techList={['react', 'mongo', 'webpack']}
             isNotMobile={isNotMobile}
