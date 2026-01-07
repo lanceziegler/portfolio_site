@@ -110,7 +110,7 @@ const Top = ({ id }: { id: string }) => {
                     </div>
                     <div className='text-center'>
                       <p className='text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-slate-400 font-montserrat tracking-tighter'>
-                        human
+                        human being
                       </p>
                     </div>
                   </div>
