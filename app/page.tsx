@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 
 const Home = () => {
   useEffect(() => {
+    console.log('DEV CHANGE TEST', Date.now());
+
     if (window.location.hash) {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
